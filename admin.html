@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ookhal Musal — Atelier Admin Console</title>
+  <meta name="robots" content="noindex, nofollow">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="assets/css/style.css">
+  
+  <style>
+    :root {
+      --admin-bg: #F7F4EE;
+      --admin-card: #FFFFFF;
+      --admin-border: #E3D9C8;
+      --admin-walnut: #3A2E2B;
+      --admin-brass: #C29B38;
+      --admin-terracotta: #C85A32;
+    }
+
+    body {
+      background: var(--admin-bg);
+      color: var(--admin-walnut);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    .admin-navbar {
+      background: var(--admin-walnut);
+      color: var(--ivory);
+      padding: 16px 32px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .admin-brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .admin-brand h1 {
+      font-family: var(--font-serif);
+      font-size: 1.5rem;
+      margin: 0;
+      letter-spacing: 0.05em;
+      color: var(--ivory);
+    }
+
+    .admin-badge {
+      background: var(--admin-brass);
+      color: var(--walnut);
+      font-size: 0.7rem;
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    .admin-nav-links {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+    }
+
+    .admin-container {
+      max-width: 1240px;
+      margin: 32px auto;
+      padding: 0 24px;
+    }
+
+    .admin-tabs {
+      display: flex;
+      gap: 12px;
+      border-bottom: 2px solid var(--admin-border);
+      margin-bottom: 28px;
+    }
+
+    .admin-tab-btn {
+      background: none;
+      border: none;
+      padding: 12px 20px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--sage);
+      cursor: pointer;
+      border-bottom: 3px solid transparent;
+      margin-bottom: -2px;
+      transition: all 0.2s ease;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .admin-tab-btn.active {
+      color: var(--admin-terracotta);
+      border-bottom-color: var(--admin-terracotta);
+      font-weight: 700;
+    }
+
+    .tab-content {
+      display: none;
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+
+    .admin-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.35fr;
+      gap: 28px;
+      align-items: start;
+    }
+
+    @media (max-width: 900px) {
+      .admin-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .admin-card {
+      background: var(--admin-card);
+      border: 1px solid var(--admin-border);
+      border-radius: 12px;
+      padding: 24px;
+      box-shadow: 0 4px 15px rgba(58, 46, 43, 0.04);
+    }
+
+    .admin-card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--border-light);
+    }
+
+    .admin-card-title {
+      font-family: var(--font-serif);
+      font-size: 1.35rem;
+      margin: 0;
+      color: var(--admin-walnut);
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    .form-group {
+      margin-bottom: 16px;
+    }
+
+    .form-label {
+      display: block;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--admin-walnut);
+      margin-bottom: 6px;
+    }
+
+    .form-input, .form-select, .form-textarea {
+      width: 100%;
+      padding: 10px 12px;
+      border: 1px solid var(--admin-border);
+      border-radius: 6px;
+      font-size: 0.88rem;
+      font-family: inherit;
+      box-sizing: border-box;
+      background: #FFFDF9;
+      color: var(--admin-walnut);
+      transition: border-color 0.2s;
+    }
+
+    .form-input:focus, .form-select:focus, .form-textarea:focus {
+      outline: none;
+      border-color: var(--admin-terracotta);
+      background: #FFFFFF;
+    }
+
+    .spice-item-row {
+      background: #FFFDF9;
+      border: 1px solid var(--border-light);
+      border-radius: 8px;
+      padding: 14px 16px;
+      margin-bottom: 12px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      transition: all 0.2s;
+    }
+
+    .spice-item-row:hover {
+      border-color: var(--admin-brass);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    }
+
+    .badge-in-stock {
+      background: #DEF7EC;
+      color: #03543F;
+      font-size: 0.72rem;
+      padding: 3px 8px;
+      border-radius: 4px;
+      font-weight: 600;
+    }
+
+    .badge-out-stock {
+      background: #FDE8E8;
+      color: #9B1C1C;
+      font-size: 0.72rem;
+      padding: 3px 8px;
+      border-radius: 4px;
+      font-weight: 600;
+    }
+
+    .leads-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.86rem;
+      text-align: left;
+    }
+
+    .leads-table th {
+      background: var(--admin-walnut);
+      color: var(--ivory);
+      padding: 12px 14px;
+      font-weight: 600;
+    }
+
+    .leads-table td {
+      padding: 12px 14px;
+      border-bottom: 1px solid var(--border-light);
+    }
+
+    .leads-table tr:hover td {
+      background: #FAF7F2;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Admin Bar -->
+  <header class="admin-navbar">
+    <a href="index.html" class="admin-brand">
+      <img src="brand-identity/vector-svg/primary-logo-walnut-transparent.svg" alt="Ookhal Musal" style="height: 38px; filter: brightness(0) invert(1);">
+      <div>
+        <h1>Ookhal Musal</h1>
+        <div style="font-size: 0.72rem; color: var(--brass-light); letter-spacing: 0.08em;">ADMIN CONSOLE &amp; CATALOG MANAGEMENT</div>
+      </div>
+    </a>
+
+    <div class="admin-nav-links">
+      <span class="admin-badge">Admin Access</span>
+      <a href="index.html" class="btn btn-secondary btn-sm" style="border-color: rgba(255,255,255,0.3); color: var(--ivory);">
+        <span>&larr; View Live Website</span>
+      </a>
+    </div>
+  </header>
+
+  <main class="admin-container">
+    
+    <!-- Tab Controls -->
+    <div class="admin-tabs">
+      <button class="admin-tab-btn active" data-tab="tab-spices">
+        <span>🌶️ Spice Catalog &amp; New Launches</span>
+      </button>
+      <button class="admin-tab-btn" data-tab="tab-leads">
+        <span>📋 Apartment Leads Vault</span>
+        <span class="badge-tag badge-gold" id="vault-count-badge" style="font-size: 0.7rem;">0</span>
+      </button>
+      <button class="admin-tab-btn" data-tab="tab-hubspot">
+        <span>⚙️ HubSpot CRM Settings</span>
+      </button>
+    </div>
+
+    <!-- ==================== TAB 1: SPICE CATALOG & NEW LAUNCHES ==================== -->
+    <section id="tab-spices" class="tab-content active">
+      <div class="admin-grid">
+        
+        <!-- Left Column: Add New Spice Launch -->
+        <div class="admin-card">
+          <div class="admin-card-header">
+            <div>
+              <h2 class="admin-card-title">✨ Add Spice or New Launch</h2>
+              <span style="font-size: 0.8rem; color: var(--sage);">Changes instantly reflect on the public website catalog</span>
+            </div>
+          </div>
+
+          <form id="admin-add-spice-form">
+            <div class="form-group">
+              <label class="form-label">Spice Name (English) *</label>
+              <input type="text" id="admin-spice-name" class="form-input" placeholder="e.g. Winter Shahi Biryani Masala" required>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Hindi / Regional Name</label>
+              <input type="text" id="admin-spice-hindi" class="form-input" placeholder="e.g. शाही बिरयानी मसाला">
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label">Category *</label>
+                <select id="admin-spice-category" class="form-select">
+                  <option value="new-launches">✨ New Launch</option>
+                  <option value="heirloom-blends">👑 Heirloom Blend</option>
+                  <option value="single-origin">🌿 Single-Origin Whole</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">Price per 100g *</label>
+                <input type="text" id="admin-spice-price" class="form-input" placeholder="₹280 / 100g" required>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Origin / Estate Sourced From</label>
+              <input type="text" id="admin-spice-origin" class="form-input" placeholder="e.g. Pampore, Kashmir">
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Aroma &amp; Tasting Notes</label>
+              <input type="text" id="admin-spice-aroma" class="form-input" placeholder="e.g. Intensely fragrant, sweet mace, citrusy green cardamom">
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Short Description</label>
+              <textarea id="admin-spice-desc" class="form-textarea" rows="3" placeholder="Ingredients story, hand-toasting notes, or culinary pairing tips..."></textarea>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label">Grind Styles (comma separated)</label>
+                <input type="text" id="admin-spice-grind" class="form-input" placeholder="Fine Powder, Coarse Pounded">
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">Emoji Icon</label>
+                <input type="text" id="admin-spice-icon" class="form-input" value="🌿" placeholder="🌶️, 🌿, ☕">
+              </div>
+            </div>
+
+            <div class="form-group" style="display: flex; align-items: center; gap: 10px; margin-top: 8px;">
+              <input type="checkbox" id="admin-spice-is-launch" checked style="width: 18px; height: 18px; cursor: pointer;">
+              <label for="admin-spice-is-launch" style="font-size: 0.88rem; font-weight: 600; cursor: pointer;">
+                Highlight as "🌟 New Launch" in catalog
+              </label>
+            </div>
+
+            <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 10px;">
+              <span>+ Add to Live Website Catalog</span>
+            </button>
+          </form>
+        </div>
+
+        <!-- Right Column: Live Inventory & Stock Management -->
+        <div class="admin-card">
+          <div class="admin-card-header">
+            <div>
+              <h2 class="admin-card-title">Live Catalog Inventory</h2>
+              <span style="font-size: 0.8rem; color: var(--sage);" id="catalog-count-display">Loading items...</span>
+            </div>
+            <div style="display: flex; gap: 8px;">
+              <button class="btn btn-secondary btn-sm" id="btn-export-spices">
+                <span>📋 Export JSON</span>
+              </button>
+              <button class="btn btn-secondary btn-sm" id="btn-reset-spices" style="color: #9C4221;">
+                <span>↺ Reset</span>
+              </button>
+            </div>
+          </div>
+
+          <div id="admin-spices-list" style="max-height: 620px; overflow-y: auto; padding-right: 4px;">
+            <!-- Injected by JavaScript -->
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==================== TAB 2: APARTMENT LEADS VAULT ==================== -->
+    <section id="tab-leads" class="tab-content">
+      <div class="admin-card">
+        <div class="admin-card-header">
+          <div>
+            <h2 class="admin-card-title">Apartment &amp; Society Lead Vault</h2>
+            <span style="font-size: 0.82rem; color: var(--sage);">All society invitation leads captured from the website form and modals</span>
+          </div>
+          <button class="btn btn-secondary btn-sm" id="btn-download-leads-csv">
+            <span>📥 Download Leads as CSV</span>
+          </button>
+        </div>
+
+        <div style="overflow-x: auto; border: 1px solid var(--border-light); border-radius: 8px;">
+          <table class="leads-table">
+            <thead>
+              <tr>
+                <th>Date &amp; Time</th>
+                <th>Resident / Host</th>
+                <th>Phone / WhatsApp</th>
+                <th>Apartment Society &amp; City</th>
+                <th>Estimated Homes</th>
+                <th>Desired Slot</th>
+                <th>Spices Selected</th>
+                <th>HubSpot Status</th>
+              </tr>
+            </thead>
+            <tbody id="admin-leads-table-body">
+              <!-- Dynamically populated -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== TAB 3: HUBSPOT CRM CONFIGURATION ==================== -->
+    <section id="tab-hubspot" class="tab-content">
+      <div class="admin-card" style="max-width: 680px; margin: 0 auto;">
+        <div class="admin-card-header">
+          <div>
+            <h2 class="admin-card-title">HubSpot CRM Form Routing</h2>
+            <span style="font-size: 0.82rem; color: var(--sage);">Connect your official HubSpot form for automatic lead pipeline sync</span>
+          </div>
+        </div>
+
+        <div style="background: #F4EFE6; border: 1px solid var(--border-light); border-radius: 8px; padding: 18px; margin-bottom: 24px;">
+          <h4 style="font-size: 0.95rem; margin-bottom: 8px; color: var(--walnut);">How Lead Routing Works:</h4>
+          <p style="font-size: 0.85rem; color: #625347; line-height: 1.55; margin: 0;">
+            Every time a resident submits the "Invite to Apartment" form, the payload is automatically posted directly to the HubSpot Forms API. Even before connecting HubSpot, all submissions are safely stored inside your <strong>Lead Vault</strong> (Tab 2) so you never miss a prospective society lead!
+          </p>
+        </div>
+
+        <form id="admin-hubspot-form">
+          <div class="form-group">
+            <label class="form-label">HubSpot Hub ID (Portal ID) *</label>
+            <input type="text" id="admin-hs-portal-id" class="form-input" placeholder="e.g. 248076388" required>
+            <span style="font-size: 0.75rem; color: var(--sage);">Found in your HubSpot URL or top right profile menu</span>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">HubSpot Form GUID (Form ID) *</label>
+            <input type="text" id="admin-hs-form-id" class="form-input" placeholder="e.g. fff92aa0-541d-4116-a37e-43d665200b73" required>
+            <span style="font-size: 0.75rem; color: var(--sage);">From HubSpot Marketing &gt; Forms &gt; Embed code or Form edit URL</span>
+          </div>
+
+          <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 14px;">
+            <span>✓ Save &amp; Connect HubSpot Credentials</span>
+          </button>
+        </form>
+
+        <div style="margin-top: 28px; padding-top: 20px; border-top: 1px solid var(--border-light);">
+          <h4 style="font-size: 0.95rem; margin-bottom: 8px;">Documentation</h4>
+          <p style="font-size: 0.84rem; color: var(--sage); line-height: 1.5;">
+            Need help creating the form fields inside your HubSpot portal? Check our step-by-step guide in <strong style="color: var(--walnut);">HUBSPOT_SETUP_GUIDE.md</strong>.
+          </p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Scripts -->
+  <script src="assets/js/spices-data.js"></script>
+  <script src="assets/js/hubspot-config.js"></script>
+  
+  <script>
+    // Tab Switching Logic
+    const tabBtns = document.querySelectorAll(".admin-tab-btn");
+    const tabContents = document.querySelectorAll(".tab-content");
+
+    tabBtns.forEach(btn => {
+      btn.addEventListener("click", () => {
+        const targetId = btn.dataset.tab;
+        tabBtns.forEach(b => b.classList.remove("active"));
+        tabContents.forEach(c => c.classList.remove("active"));
+
+        btn.classList.add("active");
+        document.getElementById(targetId).classList.add("active");
+
+        if (targetId === "tab-leads") {
+          renderLeadsVault();
+        }
+      });
+    });
+
+    // Spices State & Rendering
+    let currentSpices = getStoredSpices();
+    const spicesListEl = document.getElementById("admin-spices-list");
+    const catalogCountEl = document.getElementById("catalog-count-display");
+    const vaultBadgeEl = document.getElementById("vault-count-badge");
+
+    function renderSpicesList() {
+      if (!spicesListEl) return;
+      catalogCountEl.textContent = `${currentSpices.length} active spices in catalog`;
+
+      spicesListEl.innerHTML = currentSpices.map((spice, idx) => `
+        <div class="spice-item-row">
+          <div style="flex-grow: 1;">
+            <div style="display: flex; align-items: center; gap: 8px;">
+              <span style="font-size: 1.25rem;">${spice.icon || '🌿'}</span>
+              <strong style="font-size: 0.95rem; color: var(--admin-walnut);">${spice.name}</strong>
+              ${spice.isNewLaunch ? '<span class="badge-tag badge-launch" style="font-size: 0.65rem;">NEW</span>' : ''}
+              <span class="${spice.isAvailable !== false ? 'badge-in-stock' : 'badge-out-stock'}">
+                ${spice.isAvailable !== false ? 'In Stock' : 'Out of Stock'}
+              </span>
+            </div>
+            <div style="font-size: 0.8rem; color: var(--sage); margin-top: 4px;">
+              ${spice.hindiName ? spice.hindiName + ' • ' : ''}
+              ${spice.origin || 'Single Origin'} • 
+              <strong style="color: var(--admin-terracotta);">${spice.pricePer100g || ''}</strong>
+            </div>
+          </div>
+
+          <div style="display: flex; align-items: center; gap: 8px; flex-shrink: 0;">
+            <button 
+              type="button" 
+              class="btn btn-sm ${spice.isAvailable !== false ? 'btn-secondary' : 'btn-primary'}" 
+              style="font-size: 0.75rem; padding: 5px 12px;"
+              onclick="toggleSpiceStock(${idx})">
+              ${spice.isAvailable !== false ? 'Toggle: Out of Stock' : 'Toggle: In Stock'}
+            </button>
+            <button 
+              type="button" 
+              style="background: none; border: none; color: #C53030; font-size: 1.15rem; cursor: pointer; padding: 4px;" 
+              title="Delete spice" 
+              onclick="deleteSpice(${idx})">
+              🗑️
+            </button>
+          </div>
+        </div>
+      `).join("");
+    }
+
+    function toggleSpiceStock(idx) {
+      currentSpices[idx].isAvailable = !currentSpices[idx].isAvailable;
+      saveStoredSpices(currentSpices);
+      renderSpicesList();
+    }
+
+    function deleteSpice(idx) {
+      const name = currentSpices[idx].name;
+      if (confirm(`Remove "${name}" from the live catalog?`)) {
+        currentSpices.splice(idx, 1);
+        saveStoredSpices(currentSpices);
+        renderSpicesList();
+      }
+    }
+
+    // Add New Spice Form Handler
+    document.getElementById("admin-add-spice-form").addEventListener("submit", (e) => {
+      e.preventDefault();
+
+      const name = document.getElementById("admin-spice-name").value.trim();
+      const hindi = document.getElementById("admin-spice-hindi").value.trim();
+      const category = document.getElementById("admin-spice-category").value;
+      const price = document.getElementById("admin-spice-price").value.trim();
+      const origin = document.getElementById("admin-spice-origin").value.trim();
+      const aroma = document.getElementById("admin-spice-aroma").value.trim();
+      const desc = document.getElementById("admin-spice-desc").value.trim();
+      const grind = document.getElementById("admin-spice-grind").value.trim();
+      const isLaunch = document.getElementById("admin-spice-is-launch").checked;
+      const icon = document.getElementById("admin-spice-icon").value.trim() || "🌿";
+
+      const newSpice = {
+        id: "sp-" + Date.now().toString().slice(-4),
+        name: name,
+        hindiName: hindi,
+        category: category,
+        isNewLaunch: isLaunch,
+        isAvailable: true,
+        badge: isLaunch ? "🌟 New Launch" : "Fresh Harvest",
+        origin: origin || "Single Origin Estate",
+        aromaProfile: aroma || "Freshly ground fragrant volatile oils.",
+        grindOptions: grind ? grind.split(",").map(g => g.trim()) : ["Fine Powder", "Coarse Pounded"],
+        pricePer100g: price.startsWith("₹") ? price : `₹${price} / 100g`,
+        description: desc || "Authentic single-estate whole spice ground live at your doorstep.",
+        icon: icon
+      };
+
+      currentSpices.unshift(newSpice);
+      saveStoredSpices(currentSpices);
+      renderSpicesList();
+      document.getElementById("admin-add-spice-form").reset();
+      alert(`🎉 New spice "${name}" has been added to the live catalog!`);
+    });
+
+    // Export & Reset
+    document.getElementById("btn-export-spices").addEventListener("click", () => {
+      const json = JSON.stringify(currentSpices, null, 2);
+      navigator.clipboard.writeText(json).then(() => {
+        alert("Copied catalog JSON to clipboard!");
+      }).catch(() => {
+        prompt("Copy catalog JSON:", json);
+      });
+    });
+
+    document.getElementById("btn-reset-spices").addEventListener("click", () => {
+      if (confirm("Reset catalog back to initial default items?")) {
+        localStorage.removeItem("ookhal_spices_catalog");
+        currentSpices = getStoredSpices();
+        renderSpicesList();
+        alert("Catalog reset to defaults.");
+      }
+    });
+
+    // Leads Vault Table
+    function renderLeadsVault() {
+      const tbody = document.getElementById("admin-leads-table-body");
+      const leads = getStoredLeads();
+      vaultBadgeEl.textContent = leads.length;
+
+      if (!tbody) return;
+
+      if (leads.length === 0) {
+        tbody.innerHTML = `
+          <tr>
+            <td colspan="8" style="text-align: center; padding: 40px; color: var(--sage);">
+              No society leads submitted yet. When residents fill out the booking form on the website, they will appear here!
+            </td>
+          </tr>
+        `;
+        return;
+      }
+
+      tbody.innerHTML = leads.map(l => `
+        <tr>
+          <td style="white-space: nowrap; font-size: 0.8rem; color: var(--sage);">${new Date(l.date).toLocaleString()}</td>
+          <td><strong>${l.name || 'Resident'}</strong></td>
+          <td><a href="https://wa.me/${(l.phone || '').replace(/[^0-9]/g, '')}" target="_blank" style="color: #03543F; font-weight: 600; text-decoration: none;">💬 ${l.phone || '-'}</a></td>
+          <td>${l.society || '-'}, ${l.city || '-'}</td>
+          <td>${l.homes || '-'}</td>
+          <td>${l.slot || 'Upcoming Weekend'}</td>
+          <td style="max-width: 220px; font-size: 0.78rem;">${l.spices && l.spices.length ? l.spices.join(', ') : 'All House Blends'}</td>
+          <td>
+            <span class="badge-tag ${l.syncedToHubspot ? 'badge-gold' : 'badge-launch'}" style="font-size: 0.7rem;">
+              ${l.syncedToHubspot ? '✓ HubSpot' : 'Vault Local'}
+            </span>
+          </td>
+        </tr>
+      `).join("");
+    }
+
+    document.getElementById("btn-download-leads-csv").addEventListener("click", () => {
+      exportLeadsAsCSV();
+    });
+
+    // HubSpot Settings Form
+    const hsPortalInput = document.getElementById("admin-hs-portal-id");
+    const hsFormInput = document.getElementById("admin-hs-form-id");
+
+    if (window.HUBSPOT_CONFIG) {
+      if (hsPortalInput) hsPortalInput.value = window.HUBSPOT_CONFIG.portalId === "YOUR_HUBSPOT_PORTAL_ID" ? "" : window.HUBSPOT_CONFIG.portalId;
+      if (hsFormInput) hsFormInput.value = window.HUBSPOT_CONFIG.formId === "YOUR_HUBSPOT_FORM_ID" ? "" : window.HUBSPOT_CONFIG.formId;
+    }
+
+    document.getElementById("admin-hubspot-form").addEventListener("submit", (e) => {
+      e.preventDefault();
+      const p = hsPortalInput.value.trim();
+      const f = hsFormInput.value.trim();
+
+      if (!p || !f) {
+        alert("Please provide both Portal ID and Form ID.");
+        return;
+      }
+
+      window.HUBSPOT_CONFIG.portalId = p;
+      window.HUBSPOT_CONFIG.formId = f;
+      window.HUBSPOT_CONFIG.isLive = true;
+
+      localStorage.setItem("ookhal_hubspot_settings", JSON.stringify({
+        portalId: p,
+        formId: f
+      }));
+
+      alert("✓ HubSpot CRM settings saved and active!");
+    });
+
+    // Initialize
+    renderSpicesList();
+    renderLeadsVault();
+  </script>
+</body>
+</html>

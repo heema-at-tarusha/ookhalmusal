@@ -1,1434 +1,694 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ookhal Musal | Fresh-Ground Spices, Made for Your Kitchen</title>
-  <meta name="description" content="Rediscover the wisdom of traditional Indian kitchens. Ookhal Musal creates personalised spice blends using whole spices, freshly blended and ground for your kitchen.">
-  
-  <!-- Google Fonts: Cormorant Garamond, DM Serif Display & Manrope -->
+  <title>OOKHAL MUSAL (उखल मूसल) — Clean Spices, Your Grandmother's Taste, Ground at Your Doorstep</title>
+  <meta name="description" content="Ookhal Musal is a luxury personalized spice atelier. We bring single-estate sun-dried spices and our stone-and-brass grinding station directly to your apartment or society. Freshly pounded before your eyes.">
+
+  <!-- Favicon / Brand Symbol -->
+  <link rel="icon" type="image/svg+xml" href="brand-identity/vector-svg/symbol-antique-brass.svg">
+
+  <!-- Google Fonts: Cormorant Garamond & Manrope -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,600&family=DM+Serif+Display:ital@0;1&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  
-  <!-- Tailwind CSS CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            walnut: {
-              DEFAULT: '#3E3025',
-              dark: '#2A1F17',
-              deep: '#1F1711',
-              light: '#534335'
-            },
-            ivory: {
-              DEFAULT: '#E9DFC9',
-              light: '#F5EFE1',
-              dark: '#DDD2B8',
-              cream: '#FAF6ED'
-            },
-            terracotta: {
-              DEFAULT: '#A65F3D',
-              dark: '#8C4D2E',
-              light: '#BE7654'
-            },
-            sage: {
-              DEFAULT: '#8B8060',
-              light: '#A59B78',
-              dark: '#71674A'
-            },
-            brass: {
-              DEFAULT: '#C2A16B',
-              light: '#D4B889',
-              dark: '#A5844E'
-            },
-            stone: {
-              DEFAULT: '#B8A38C',
-              light: '#CFC0AE',
-              dark: '#9E8871'
-            }
-          },
-          fontFamily: {
-            serif: ['"Cormorant Garamond"', 'Georgia', 'serif'],
-            display: ['"DM Serif Display"', 'Georgia', 'serif'],
-            sans: ['"Manrope"', '-apple-system', 'sans-serif'],
-          }
-        }
-      }
-    }
-  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-  <!-- Lucide Icons -->
-  <script src="https://unpkg.com/lucide@latest"></script>
-
-  <style>
-    /* Custom Scrollbar */
-    ::-webkit-scrollbar {
-      width: 8px;
-    }
-    ::-webkit-scrollbar-track {
-      background: #F5EFE1;
-    }
-    ::-webkit-scrollbar-thumb {
-      background: #B8A38C;
-      border-radius: 4px;
-    }
-    ::-webkit-scrollbar-thumb:hover {
-      background: #A65F3D;
-    }
-
-    /* Textured subtle background effect */
-    .paper-texture {
-      background-color: #F5EFE1;
-      background-image: radial-gradient(#3E3025 0.5px, transparent 0.5px);
-      background-size: 24px 24px;
-      opacity: 0.98;
-    }
-
-    /* Subtle reveal animations */
-    .fade-in-section {
-      opacity: 0;
-      transform: translateY(24px);
-      transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-      will-change: opacity, transform;
-    }
-    .fade-in-section.is-visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  </style>
+  <!-- Custom Stylesheet -->
+  <link rel="stylesheet" href="assets/css/style.css">
 </head>
-<body class="font-sans text-walnut bg-ivory-light antialiased selection:bg-terracotta selection:text-ivory-light">
+<body>
 
-  <!-- ==================== HEADER & NAVIGATION ==================== -->
-  <header id="main-header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-ivory-light/90 backdrop-blur-md border-b border-stone/20">
-    <div class="max-w-7xl mx-auto px-6 lg:px-12 h-20 flex items-center justify-between">
-      
-      <!-- Brand Logo -->
-      <a href="#hero" class="flex flex-col group">
-        <span class="font-display tracking-[0.22em] text-xl lg:text-2xl text-walnut uppercase group-hover:text-terracotta transition-colors">
-          Ookhal Musal
-        </span>
-        <span class="font-serif italic text-xs tracking-wider text-sage -mt-1">
-          Atelier of Fresh Spices
-        </span>
-      </a>
+  <!-- Announcement Bar -->
+  <aside class="announcement-bar" role="region" aria-label="Announcement">
+    <span>🌿 <strong>Apartment Society Booking Open:</strong> Invite our live grinding camp to your residential community in Bangalore &amp; Delhi NCR! <a href="#invite-apartment">Book a Society Slot &rarr;</a></span>
+  </aside>
 
-      <!-- Desktop Nav -->
-      <nav class="hidden md:flex items-center space-x-8 text-xs uppercase tracking-[0.16em] font-medium text-walnut/80">
-        <a href="#hero" class="hover:text-terracotta transition-colors py-1">Home</a>
-        <a href="#philosophy" class="hover:text-terracotta transition-colors py-1">Our Philosophy</a>
-        <a href="#ritual" class="hover:text-terracotta transition-colors py-1">Fresh Grinding</a>
-        <a href="#blends" class="hover:text-terracotta transition-colors py-1">Our Blends</a>
-        <a href="#personalise" class="hover:text-terracotta transition-colors py-1">Personalise</a>
-        <a href="#enquiry" class="hover:text-terracotta transition-colors py-1">Contact</a>
-      </nav>
-
-      <!-- Header Action CTA -->
-      <div class="hidden sm:flex items-center space-x-4">
-        <a href="#enquiry" class="px-5 py-2.5 rounded-full text-xs font-semibold tracking-wider uppercase bg-walnut text-ivory hover:bg-terracotta transition-all duration-300 shadow-sm hover:shadow">
-          Book an Experience
+  <!-- Site Navigation -->
+  <header class="site-header">
+    <div class="container">
+      <div class="nav-wrapper">
+        <a href="#" class="brand-identity-link" aria-label="Ookhal Musal Home">
+          <img src="brand-identity/vector-svg/primary-logo-walnut-transparent.svg" alt="OOKHAL MUSAL — Spice Atelier" class="brand-logo-img">
         </a>
+
+        <nav>
+          <ul class="nav-menu">
+            <li><a href="#usp-story">The Ritual</a></li>
+            <li><a href="#how-it-works">How It Works</a></li>
+            <li><a href="#spice-catalog">Spices &amp; New Launches</a></li>
+            <li><a href="#invite-apartment">Invite to Apartment</a></li>
+            <li><a href="#testimonials">Society Stories</a></li>
+          </ul>
+        </nav>
+
+        <div class="nav-actions">
+          <button class="btn btn-primary btn-open-booking-modal">
+            <span>🌿 Invite Us to Society</span>
+          </button>
+        </div>
       </div>
-
-      <!-- Mobile Hamburger Button -->
-      <button id="mobile-menu-btn" class="md:hidden text-walnut p-2 focus:outline-none" aria-label="Toggle Menu">
-        <i data-lucide="menu" class="w-6 h-6"></i>
-      </button>
-    </div>
-
-    <!-- Mobile Navigation Drawer -->
-    <div id="mobile-menu" class="hidden md:hidden bg-ivory-light border-b border-stone/30 px-6 py-6 space-y-4">
-      <a href="#hero" class="mobile-nav-link block text-sm uppercase tracking-wider font-medium text-walnut hover:text-terracotta">Home</a>
-      <a href="#philosophy" class="mobile-nav-link block text-sm uppercase tracking-wider font-medium text-walnut hover:text-terracotta">Our Philosophy</a>
-      <a href="#ritual" class="mobile-nav-link block text-sm uppercase tracking-wider font-medium text-walnut hover:text-terracotta">Fresh Grinding</a>
-      <a href="#difference" class="mobile-nav-link block text-sm uppercase tracking-wider font-medium text-walnut hover:text-terracotta">Why Fresh-Ground</a>
-      <a href="#blends" class="mobile-nav-link block text-sm uppercase tracking-wider font-medium text-walnut hover:text-terracotta">Our Blends</a>
-      <a href="#personalise" class="mobile-nav-link block text-sm uppercase tracking-wider font-medium text-walnut hover:text-terracotta">Personalise</a>
-      <a href="#mother-recipe" class="mobile-nav-link block text-sm uppercase tracking-wider font-medium text-walnut hover:text-terracotta">Mother's Recipe</a>
-      <a href="#ingredients" class="mobile-nav-link block text-sm uppercase tracking-wider font-medium text-walnut hover:text-terracotta">Ingredients</a>
-      <a href="#enquiry" class="mobile-nav-link block text-sm uppercase tracking-wider font-semibold text-terracotta">Book an Experience &rarr;</a>
     </div>
   </header>
 
-  <!-- ==================== SECTION 1 — HERO ==================== -->
-  <section id="hero" class="relative min-h-[92vh] flex items-center pt-24 pb-16 overflow-hidden">
-    <!-- Background ambiance with subtle warm kitchen tones -->
-    <div class="absolute inset-0 z-0">
-      <img 
-        src="https://images.unsplash.com/photo-1596040033229-a9821ebd058d?q=80&w=2000&auto=format&fit=crop" 
-        alt="Traditional whole Indian spices, mortar and pestle, brass utensils in warm natural light" 
-        class="w-full h-full object-cover object-center brightness-[0.88] contrast-[0.98]"
-      />
-      <!-- Gentle gradient overlays to balance contrast and preserve typography readability -->
-      <div class="absolute inset-0 bg-gradient-to-r from-ivory-cream/95 via-ivory-cream/85 to-ivory-cream/40 lg:w-3/5"></div>
-      <div class="absolute inset-0 bg-gradient-to-t from-ivory-light via-transparent to-ivory-light/40"></div>
-    </div>
-
-    <div class="relative z-10 max-w-7xl mx-auto px-6 lg:px-12 w-full">
-      <div class="max-w-2xl lg:py-12 fade-in-section">
-        
-        <!-- Atelier Tag -->
-        <div class="inline-flex items-center space-x-2 border-b border-terracotta/40 pb-1 mb-6">
-          <span class="w-2 h-2 rounded-full bg-terracotta"></span>
-          <span class="text-xs uppercase tracking-[0.25em] font-medium text-walnut/80">
-            Personalised Spice Atelier
+  <!-- Hero Section -->
+  <section class="hero-section" id="hero">
+    <div class="container">
+      <div class="hero-grid">
+        <div class="hero-content">
+          <span class="hero-super">
+            <span style="color: var(--brass-dark); font-size: 1.1rem;">◈</span> A Personalised Doorstep Spice Atelier
           </span>
-        </div>
-
-        <!-- Headline -->
-        <h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl text-walnut leading-[1.12] mb-6 font-normal">
-          Some wisdom is best <br>
-          <span class="italic font-normal text-terracotta">ground fresh.</span>
-        </h1>
-
-        <!-- Supporting Copy -->
-        <p class="text-base sm:text-lg text-walnut/85 font-light leading-relaxed mb-8 max-w-xl">
-          Rooted in the wisdom of our grandmothers, <strong class="font-medium text-walnut">Ookhal Musal</strong> brings the art of fresh-ground spices back to your kitchen. Thoughtfully selected, personally blended and ground fresh for you.
-        </p>
-
-        <!-- CTA Buttons -->
-        <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pt-2">
-          <a href="#enquiry" class="inline-flex justify-center items-center px-8 py-3.5 rounded-full text-xs uppercase tracking-[0.18em] font-semibold bg-terracotta text-ivory-light hover:bg-terracotta-dark transition-all duration-300 shadow-md hover:shadow-lg">
-            Experience Fresh Grinding
-          </a>
-          <a href="#philosophy" class="inline-flex justify-center items-center px-7 py-3.5 rounded-full text-xs uppercase tracking-[0.18em] font-medium border border-walnut/40 text-walnut hover:bg-walnut/5 transition-all duration-300">
-            Discover Our Story
-          </a>
-        </div>
-
-        <!-- Micro Feature Badges -->
-        <div class="grid grid-cols-3 gap-4 pt-12 mt-8 border-t border-stone/30 text-xs text-walnut/70">
-          <div>
-            <p class="font-serif italic text-base text-walnut font-medium">Whole Botanicals</p>
-            <p class="text-[11px] leading-tight text-sage">Hand-selected spices</p>
-          </div>
-          <div>
-            <p class="font-serif italic text-base text-walnut font-medium">Bespoke Ratios</p>
-            <p class="text-[11px] leading-tight text-sage">Tuned to your palate</p>
-          </div>
-          <div>
-            <p class="font-serif italic text-base text-walnut font-medium">Ground On Demand</p>
-            <p class="text-[11px] leading-tight text-sage">Before your eyes</p>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ==================== SECTION 2 — THE PHILOSOPHY ==================== -->
-  <section id="philosophy" class="py-24 bg-ivory-cream relative border-t border-stone/20">
-    <div class="max-w-7xl mx-auto px-6 lg:px-12">
-      
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-        
-        <!-- Left: Imagery & Still Life Composition -->
-        <div class="lg:col-span-5 order-2 lg:order-1 relative fade-in-section">
-          <div class="relative mx-auto max-w-md lg:max-w-none">
-            <!-- Main artistic photo -->
-            <div class="relative overflow-hidden rounded-2xl shadow-xl border border-stone/20 aspect-[4/5]">
-              <img 
-                src="https://images.unsplash.com/photo-1615485290382-441e4d049cb5?q=80&w=1200&auto=format&fit=crop" 
-                alt="Rustic kitchen tabletop with brass mortar and pestle and whole spices" 
-                class="w-full h-full object-cover"
-              />
-              <div class="absolute inset-0 bg-walnut/10 mix-blend-multiply"></div>
-            </div>
-
-            <!-- Floating handwritten card accent -->
-            <div class="absolute -bottom-6 -right-4 sm:-right-8 bg-ivory-light p-6 rounded-xl shadow-lg border border-brass/30 max-w-[240px]">
-              <p class="font-serif italic text-sm text-walnut leading-snug">
-                "An old kitchen never measured by grams, but by the fragrance that filled the courtyard."
-              </p>
-              <span class="block text-[10px] uppercase tracking-widest text-sage mt-2">Dadi's Kitchen Note</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Right: Storytelling Text -->
-        <div class="lg:col-span-7 order-1 lg:order-2 fade-in-section">
-          <div class="max-w-xl">
-            <span class="text-xs uppercase tracking-[0.25em] text-terracotta font-semibold block mb-3">
-              The Philosophy
-            </span>
-            <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl text-walnut font-normal leading-tight mb-8">
-              Food is more than nourishment.
-            </h2>
-
-            <div class="space-y-5 text-walnut/80 text-base sm:text-lg leading-relaxed font-light">
-              <p class="font-serif italic text-xl text-walnut/90 border-l-2 border-terracotta pl-4 my-4">
-                "Food is not merely nourishment. It is care, memory, ritual and medicine."
-              </p>
-              <p>
-                We believe food is care, memory, ritual and intention.
-              </p>
-              <p>
-                Our grandmothers knew that every spice had a purpose. Every blend had a story. Every kitchen had its own secrets passed down through touch, instinct, and the comforting clink of the heavy mortar and pestle.
-              </p>
-              <p>
-                At <span class="font-medium text-walnut">Ookhal Musal</span>, we return to that wisdom — thoughtfully sourcing whole spices, blending them around your needs, and grinding them fresh so that their aroma and flavour can be experienced at their fullest.
-              </p>
-            </div>
-
-            <div class="mt-8 pt-6 border-t border-stone/20 flex items-center space-x-6 text-sm text-sage">
-              <span class="flex items-center gap-2">
-                <i data-lucide="check" class="w-4 h-4 text-terracotta"></i> Small Batches
-              </span>
-              <span class="flex items-center gap-2">
-                <i data-lucide="check" class="w-4 h-4 text-terracotta"></i> Zero Compromise
-              </span>
-              <span class="flex items-center gap-2">
-                <i data-lucide="check" class="w-4 h-4 text-terracotta"></i> Pure Botanicals
-              </span>
-            </div>
-          </div>
-        </div>
-
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ==================== SECTION 3 — THE FRESH-GROUND RITUAL ==================== -->
-  <section id="ritual" class="py-24 bg-ivory-light relative">
-    <div class="max-w-7xl mx-auto px-6 lg:px-12">
-      
-      <!-- Section Header -->
-      <div class="text-center max-w-2xl mx-auto mb-16 fade-in-section">
-        <span class="text-xs uppercase tracking-[0.25em] text-terracotta font-semibold block mb-3">
-          Our Fourfold Process
-        </span>
-        <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl text-walnut font-normal leading-tight mb-4">
-          The ritual of making it fresh.
-        </h2>
-        <p class="text-walnut/70 text-base font-light">
-          We honor the measured rhythm of traditional Indian preparation. Every jar is crafted by intention, not automated conveyor belts.
-        </p>
-      </div>
-
-      <!-- 4 Steps Grid -->
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-        
-        <!-- Step 1 -->
-        <div class="group bg-ivory-cream/80 p-8 rounded-2xl border border-stone/30 hover:border-brass/60 transition-all duration-300 shadow-sm hover:shadow-md fade-in-section">
-          <div class="flex items-center justify-between mb-6">
-            <span class="font-serif italic text-3xl text-stone-dark font-light group-hover:text-terracotta transition-colors">01</span>
-            <div class="w-10 h-10 rounded-full bg-ivory flex items-center justify-center border border-stone/30 text-walnut">
-              <i data-lucide="sparkles" class="w-5 h-5 text-terracotta"></i>
-            </div>
-          </div>
-          <h3 class="font-serif text-2xl text-walnut tracking-wide mb-3 uppercase">SELECT</h3>
-          <p class="text-walnut/75 text-sm leading-relaxed font-light">
-            We choose whole spices based on your specific recipes, flavour inclinations and dietary considerations.
-          </p>
-        </div>
-
-        <!-- Step 2 -->
-        <div class="group bg-ivory-cream/80 p-8 rounded-2xl border border-stone/30 hover:border-brass/60 transition-all duration-300 shadow-sm hover:shadow-md fade-in-section">
-          <div class="flex items-center justify-between mb-6">
-            <span class="font-serif italic text-3xl text-stone-dark font-light group-hover:text-terracotta transition-colors">02</span>
-            <div class="w-10 h-10 rounded-full bg-ivory flex items-center justify-center border border-stone/30 text-walnut">
-              <i data-lucide="scale" class="w-5 h-5 text-terracotta"></i>
-            </div>
-          </div>
-          <h3 class="font-serif text-2xl text-walnut tracking-wide mb-3 uppercase">BLEND</h3>
-          <p class="text-walnut/75 text-sm leading-relaxed font-light">
-            We balance notes of heat, floral sweetness and earthy undertones according to your exact palate and purpose.
-          </p>
-        </div>
-
-        <!-- Step 3 -->
-        <div class="group bg-ivory-cream/80 p-8 rounded-2xl border border-stone/30 hover:border-brass/60 transition-all duration-300 shadow-sm hover:shadow-md fade-in-section">
-          <div class="flex items-center justify-between mb-6">
-            <span class="font-serif italic text-3xl text-stone-dark font-light group-hover:text-terracotta transition-colors">03</span>
-            <div class="w-10 h-10 rounded-full bg-ivory flex items-center justify-center border border-stone/30 text-walnut">
-              <i data-lucide="hammer" class="w-5 h-5 text-terracotta"></i>
-            </div>
-          </div>
-          <h3 class="font-serif text-2xl text-walnut tracking-wide mb-3 uppercase">GRIND</h3>
-          <p class="text-walnut/75 text-sm leading-relaxed font-light">
-            Your spices are ground fresh, right before your eyes, unlocking the fragile volatile aromatic compounds in real time.
-          </p>
-        </div>
-
-        <!-- Step 4 -->
-        <div class="group bg-ivory-cream/80 p-8 rounded-2xl border border-stone/30 hover:border-brass/60 transition-all duration-300 shadow-sm hover:shadow-md fade-in-section">
-          <div class="flex items-center justify-between mb-6">
-            <span class="font-serif italic text-3xl text-stone-dark font-light group-hover:text-terracotta transition-colors">04</span>
-            <div class="w-10 h-10 rounded-full bg-ivory flex items-center justify-center border border-stone/30 text-walnut">
-              <i data-lucide="shield-check" class="w-5 h-5 text-terracotta"></i>
-            </div>
-          </div>
-          <h3 class="font-serif text-2xl text-walnut tracking-wide mb-3 uppercase">PRESERVE</h3>
-          <p class="text-walnut/75 text-sm leading-relaxed font-light">
-            Your freshly ground blend is sealed immediately to preserve natural freshness, aroma and flavour as much as possible.
-          </p>
-        </div>
-
-      </div>
-
-      <div class="mt-16 text-center">
-        <p class="font-serif italic text-lg text-walnut/80">
-          "We select. We blend. We grind. Right before your eyes."
-        </p>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ==================== SECTION 4 — WHY FRESH-GROUND? ==================== -->
-  <section id="difference" class="py-24 bg-ivory-cream border-y border-stone/20 relative">
-    <div class="max-w-7xl mx-auto px-6 lg:px-12">
-      
-      <div class="text-center max-w-3xl mx-auto mb-16 fade-in-section">
-        <span class="text-xs uppercase tracking-[0.25em] text-terracotta font-semibold block mb-3">
-          A Comparative Perspective
-        </span>
-        <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl text-walnut font-normal leading-tight mb-4">
-          Experience the difference.
-        </h2>
-        <p class="text-walnut/75 text-base sm:text-lg font-light">
-          Grinding whole spices fresh and storing carefully helps minimise unnecessary exposure to air, light and time, which can gradually diminish aromatic compounds and nuanced culinary character.
-        </p>
-      </div>
-
-      <!-- Split Layout Comparison -->
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-stretch fade-in-section">
-        
-        <!-- Side A: Whole Spices & Integrity -->
-        <div class="bg-ivory-light p-8 sm:p-10 rounded-2xl border border-stone/30 shadow-sm flex flex-col justify-between">
-          <div>
-            <div class="flex items-center space-x-3 mb-6">
-              <div class="w-8 h-8 rounded-full bg-terracotta/10 flex items-center justify-center text-terracotta">
-                <i data-lucide="sun" class="w-4 h-4"></i>
-              </div>
-              <h3 class="font-serif text-2xl text-walnut">The Intact Botanical State</h3>
-            </div>
-            
-            <p class="text-walnut/80 text-sm sm:text-base leading-relaxed mb-6 font-light">
-              Within a whole spice kernel, pod, or bark, natural volatile aromatics and essential oils remain safeguarded within microscopic cell walls, protected from atmospheric oxidation until the moment of rupture.
-            </p>
-
-            <ul class="space-y-3.5 text-sm text-walnut/85">
-              <li class="flex items-start gap-3">
-                <i data-lucide="check-circle" class="w-4 h-4 text-terracotta mt-0.5 shrink-0"></i>
-                <span><strong>Whole spices selected with care:</strong> Inspected visually for oil richness and purity.</span>
-              </li>
-              <li class="flex items-start gap-3">
-                <i data-lucide="check-circle" class="w-4 h-4 text-terracotta mt-0.5 shrink-0"></i>
-                <span><strong>Aromatic integrity:</strong> Fragrant terpene and phenol compounds stay protected in nature's shell.</span>
-              </li>
-              <li class="flex items-start gap-3">
-                <i data-lucide="check-circle" class="w-4 h-4 text-terracotta mt-0.5 shrink-0"></i>
-                <span><strong>Complete transparency:</strong> You inspect every seed, clove, cardamom pod and star anise yourself.</span>
-              </li>
-            </ul>
-          </div>
-
-          <div class="mt-8 pt-6 border-t border-stone/20 text-xs text-sage italic">
-            "Before the mortar touches stone, every spice is a whole work of nature."
-          </div>
-        </div>
-
-        <!-- Side B: Freshly Ground & Custom Craft -->
-        <div class="bg-walnut text-ivory p-8 sm:p-10 rounded-2xl border border-walnut-dark shadow-lg flex flex-col justify-between">
-          <div>
-            <div class="flex items-center space-x-3 mb-6">
-              <div class="w-8 h-8 rounded-full bg-brass/20 flex items-center justify-center text-brass">
-                <i data-lucide="sparkle" class="w-4 h-4"></i>
-              </div>
-              <h3 class="font-serif text-2xl text-ivory">The Freshly Ground Atelier</h3>
-            </div>
-            
-            <p class="text-ivory/80 text-sm sm:text-base leading-relaxed mb-6 font-light">
-              By grinding on demand in front of you, the essential aromatics are awakened right as your blend is jarred. Prepared in small batches exclusively for your family's cooking rituals.
-            </p>
-
-            <ul class="space-y-3.5 text-sm text-ivory/85">
-              <li class="flex items-start gap-3">
-                <i data-lucide="check-circle-2" class="w-4 h-4 text-brass mt-0.5 shrink-0"></i>
-                <span><strong>Personalised blends:</strong> Crafted for your dishes rather than one-size-fits-all mass formulas.</span>
-              </li>
-              <li class="flex items-start gap-3">
-                <i data-lucide="check-circle-2" class="w-4 h-4 text-brass mt-0.5 shrink-0"></i>
-                <span><strong>Grinding in front of you:</strong> An intimate, sensory experience filled with real aromas.</span>
-              </li>
-              <li class="flex items-start gap-3">
-                <i data-lucide="check-circle-2" class="w-4 h-4 text-brass mt-0.5 shrink-0"></i>
-                <span><strong>Freshness-focused packing:</strong> Small batches crafted on demand to ensure culinary vitality.</span>
-              </li>
-            </ul>
-          </div>
-
-          <div class="mt-8 pt-6 border-t border-white/10 text-xs text-brass-light italic">
-            "No months on distribution warehouse shelves. Freshly ground. Made for your kitchen."
-          </div>
-        </div>
-
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ==================== SECTION 5 — OUR SIGNATURE BLENDS ==================== -->
-  <section id="blends" class="py-24 bg-ivory-light relative">
-    <div class="max-w-7xl mx-auto px-6 lg:px-12">
-      
-      <!-- Section Header -->
-      <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 fade-in-section">
-        <div class="max-w-2xl">
-          <span class="text-xs uppercase tracking-[0.25em] text-terracotta font-semibold block mb-3">
-            Signature Blend Concepts
-          </span>
-          <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl text-walnut font-normal leading-tight">
-            Curated recipes, freshly awakened.
-          </h2>
-        </div>
-        <div class="mt-4 md:mt-0 max-w-sm">
-          <p class="text-xs text-walnut/70 leading-relaxed font-light">
-            *These represent foundational concepts. Every jar we create can be personally reformulated around your pantry, heat tolerance, and family recipes.
-          </p>
-        </div>
-      </div>
-
-      <!-- Blend Cards Grid -->
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        
-        <!-- Card 1: Ghar Ka Garam Masala -->
-        <div class="group bg-ivory-cream rounded-2xl overflow-hidden border border-stone/30 hover:border-terracotta/40 transition-all duration-300 shadow-sm hover:shadow-xl flex flex-col fade-in-section">
-          <div class="h-56 overflow-hidden relative">
-            <img 
-              src="https://images.unsplash.com/photo-1599940824399-b87987ceb72a?q=80&w=900&auto=format&fit=crop" 
-              alt="Ghar Ka Garam Masala spices" 
-              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-            />
-            <div class="absolute top-4 right-4 bg-walnut/80 backdrop-blur-md px-3 py-1 rounded-full text-[11px] text-ivory tracking-widest uppercase">
-              Classic Blend
-            </div>
-          </div>
-          <div class="p-8 flex-1 flex flex-col justify-between">
-            <div>
-              <h3 class="font-serif text-2xl text-walnut mb-1">Ghar Ka Garam Masala</h3>
-              <p class="font-serif italic text-sm text-terracotta mb-4">"The warmth and familiarity of home."</p>
-              <p class="text-walnut/75 text-sm leading-relaxed font-light mb-6">
-                A comforting harmonic balance of black cardamom, cinnamon quill, mace, roasted cumin, and black pepper. Ground to bring depth without overpowering.
-              </p>
-            </div>
-            <div class="pt-4 border-t border-stone/20">
-              <button onclick="prefillEnquiry('Ghar Ka Garam Masala')" class="text-xs uppercase tracking-widest font-semibold text-walnut hover:text-terracotta flex items-center gap-2 group-hover:translate-x-1 transition-all">
-                Discover this blend <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
-              </button>
-            </div>
-          </div>
-        </div>
-
-        <!-- Card 2: Dal Ka Tadka -->
-        <div class="group bg-ivory-cream rounded-2xl overflow-hidden border border-stone/30 hover:border-terracotta/40 transition-all duration-300 shadow-sm hover:shadow-xl flex flex-col fade-in-section">
-          <div class="h-56 overflow-hidden relative">
-            <img 
-              src="https://images.unsplash.com/photo-1509358271058-acd22cc93898?q=80&w=900&auto=format&fit=crop" 
-              alt="Dal Ka Tadka whole tempering spices" 
-              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-            />
-            <div class="absolute top-4 right-4 bg-walnut/80 backdrop-blur-md px-3 py-1 rounded-full text-[11px] text-ivory tracking-widest uppercase">
-              Tempering
-            </div>
-          </div>
-          <div class="p-8 flex-1 flex flex-col justify-between">
-            <div>
-              <h3 class="font-serif text-2xl text-walnut mb-1">Dal Ka Tadka</h3>
-              <p class="font-serif italic text-sm text-terracotta mb-4">"The little ritual that transforms the everyday."</p>
-              <p class="text-walnut/75 text-sm leading-relaxed font-light mb-6">
-                Crisp cumin, crushed coriander seeds, aromatic hing, and dry ginger notes calibrated for sizzling ghee infusions that elevate lentil bowls into comforting memories.
-              </p>
-            </div>
-            <div class="pt-4 border-t border-stone/20">
-              <button onclick="prefillEnquiry('Dal Ka Tadka')" class="text-xs uppercase tracking-widest font-semibold text-walnut hover:text-terracotta flex items-center gap-2 group-hover:translate-x-1 transition-all">
-                Discover this blend <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
-              </button>
-            </div>
-          </div>
-        </div>
-
-        <!-- Card 3: Chai Ki Khushboo -->
-        <div class="group bg-ivory-cream rounded-2xl overflow-hidden border border-stone/30 hover:border-terracotta/40 transition-all duration-300 shadow-sm hover:shadow-xl flex flex-col fade-in-section">
-          <div class="h-56 overflow-hidden relative">
-            <img 
-              src="https://images.unsplash.com/photo-1576092768241-dec231879fc3?q=80&w=900&auto=format&fit=crop" 
-              alt="Aromatic chai spices with cinnamon and cardamom" 
-              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-            />
-            <div class="absolute top-4 right-4 bg-walnut/80 backdrop-blur-md px-3 py-1 rounded-full text-[11px] text-ivory tracking-widest uppercase">
-              Tea Companion
-            </div>
-          </div>
-          <div class="p-8 flex-1 flex flex-col justify-between">
-            <div>
-              <h3 class="font-serif text-2xl text-walnut mb-1">Chai Ki Khushboo</h3>
-              <p class="font-serif italic text-sm text-terracotta mb-4">"A cup made around the aromas you love."</p>
-              <p class="text-walnut/75 text-sm leading-relaxed font-light mb-6">
-                Bright green cardamom pods, sweet Sri Lankan cinnamon, sun-dried ginger, and gentle clove warmth. Formulated gently so a mere pinch infuses morning serenity.
-              </p>
-            </div>
-            <div class="pt-4 border-t border-stone/20">
-              <button onclick="prefillEnquiry('Chai Ki Khushboo')" class="text-xs uppercase tracking-widest font-semibold text-walnut hover:text-terracotta flex items-center gap-2 group-hover:translate-x-1 transition-all">
-                Discover this blend <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
-              </button>
-            </div>
-          </div>
-        </div>
-
-        <!-- Card 4: Sabzi Ka Saathi -->
-        <div class="group bg-ivory-cream rounded-2xl overflow-hidden border border-stone/30 hover:border-terracotta/40 transition-all duration-300 shadow-sm hover:shadow-xl flex flex-col fade-in-section">
-          <div class="h-56 overflow-hidden relative">
-            <img 
-              src="https://images.unsplash.com/photo-1546833999-b9f581a1996d?q=80&w=900&auto=format&fit=crop" 
-              alt="Everyday sabzi spice powders" 
-              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-            />
-            <div class="absolute top-4 right-4 bg-walnut/80 backdrop-blur-md px-3 py-1 rounded-full text-[11px] text-ivory tracking-widest uppercase">
-              Everyday Sabzi
-            </div>
-          </div>
-          <div class="p-8 flex-1 flex flex-col justify-between">
-            <div>
-              <h3 class="font-serif text-2xl text-walnut mb-1">Sabzi Ka Saathi</h3>
-              <p class="font-serif italic text-sm text-terracotta mb-4">"A thoughtfully blended companion for everyday vegetables."</p>
-              <p class="text-walnut/75 text-sm leading-relaxed font-light mb-6">
-                Designed to accentuate seasonal greens, okra, gourds and stir-fries. Mildly aromatic with roasted fenugreek, coriander seeds, and amchur tang.
-              </p>
-            </div>
-            <div class="pt-4 border-t border-stone/20">
-              <button onclick="prefillEnquiry('Sabzi Ka Saathi')" class="text-xs uppercase tracking-widest font-semibold text-walnut hover:text-terracotta flex items-center gap-2 group-hover:translate-x-1 transition-all">
-                Discover this blend <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
-              </button>
-            </div>
-          </div>
-        </div>
-
-        <!-- Card 5: Khichdi Comfort Blend -->
-        <div class="group bg-ivory-cream rounded-2xl overflow-hidden border border-stone/30 hover:border-terracotta/40 transition-all duration-300 shadow-sm hover:shadow-xl flex flex-col fade-in-section">
-          <div class="h-56 overflow-hidden relative">
-            <img 
-              src="https://images.unsplash.com/photo-1512058564366-18510be2db19?q=80&w=900&auto=format&fit=crop" 
-              alt="Soothing Khichdi comfort herbs and spices" 
-              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-            />
-            <div class="absolute top-4 right-4 bg-walnut/80 backdrop-blur-md px-3 py-1 rounded-full text-[11px] text-ivory tracking-widest uppercase">
-              Soothing
-            </div>
-          </div>
-          <div class="p-8 flex-1 flex flex-col justify-between">
-            <div>
-              <h3 class="font-serif text-2xl text-walnut mb-1">Khichdi Comfort Blend</h3>
-              <p class="font-serif italic text-sm text-terracotta mb-4">"Simple food. Thoughtfully seasoned."</p>
-              <p class="text-walnut/75 text-sm leading-relaxed font-light mb-6">
-                Light, gut-friendly aromatics: golden turmeric root, black pepper, whole cumin, and wild celery seed. Mild, medicinal warmth for recovery and slow evenings.
-              </p>
-            </div>
-            <div class="pt-4 border-t border-stone/20">
-              <button onclick="prefillEnquiry('Khichdi Comfort Blend')" class="text-xs uppercase tracking-widest font-semibold text-walnut hover:text-terracotta flex items-center gap-2 group-hover:translate-x-1 transition-all">
-                Discover this blend <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
-              </button>
-            </div>
-          </div>
-        </div>
-
-        <!-- Card 6: Pachak Blend -->
-        <div class="group bg-ivory-cream rounded-2xl overflow-hidden border border-stone/30 hover:border-terracotta/40 transition-all duration-300 shadow-sm hover:shadow-xl flex flex-col fade-in-section">
-          <div class="h-56 overflow-hidden relative">
-            <img 
-              src="https://images.unsplash.com/photo-1544787219-7f47ccb76574?q=80&w=900&auto=format&fit=crop" 
-              alt="Digestive spices with ajwain and saunf" 
-              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-            />
-            <div class="absolute top-4 right-4 bg-walnut/80 backdrop-blur-md px-3 py-1 rounded-full text-[11px] text-ivory tracking-widest uppercase">
-              After-Meal
-            </div>
-          </div>
-          <div class="p-8 flex-1 flex flex-col justify-between">
-            <div>
-              <h3 class="font-serif text-2xl text-walnut mb-1">Pachak Blend</h3>
-              <p class="font-serif italic text-sm text-terracotta mb-4">"Inspired by traditional after-meal spice rituals."</p>
-              <p class="text-walnut/75 text-sm leading-relaxed font-light mb-6">
-                Carom seeds (ajwain), Lucknowi fennel, black salt crystals, dried mint leaves, and roasted cumin. Ground coarse for a crisp, digestive post-meal palate cleanser.
-              </p>
-            </div>
-            <div class="pt-4 border-t border-stone/20">
-              <button onclick="prefillEnquiry('Pachak Blend')" class="text-xs uppercase tracking-widest font-semibold text-walnut hover:text-terracotta flex items-center gap-2 group-hover:translate-x-1 transition-all">
-                Discover this blend <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
-              </button>
-            </div>
-          </div>
-        </div>
-
-      </div>
-
-      <!-- Highlight Banner for Personalized Recreations -->
-      <div class="mt-12 bg-walnut text-ivory-light p-8 sm:p-10 rounded-2xl border border-walnut-dark flex flex-col md:flex-row items-center justify-between gap-6 fade-in-section">
-        <div class="max-w-xl">
-          <span class="text-xs uppercase tracking-[0.2em] text-brass font-medium">Concept 07</span>
-          <h3 class="font-serif text-2xl sm:text-3xl font-normal mt-1 text-ivory">My Mother's Recipe</h3>
-          <p class="text-ivory/80 text-sm mt-2 font-light">
-            "A treasured recipe recreated, personalised and freshly ground." Bring us your handwritten notes or memories, and we will formulate it to perfection.
-          </p>
-        </div>
-        <a href="#mother-recipe" class="shrink-0 px-6 py-3 rounded-full text-xs font-semibold uppercase tracking-wider bg-brass text-walnut-deep hover:bg-brass-light transition-all">
-          Explore Family Recreation &rarr;
-        </a>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ==================== SECTION 6 — PERSONALISATION ==================== -->
-  <section id="personalise" class="py-24 bg-ivory-cream border-y border-stone/20 relative">
-    <div class="max-w-7xl mx-auto px-6 lg:px-12">
-      
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-        
-        <!-- Left: Descriptive Content -->
-        <div class="lg:col-span-6 fade-in-section">
-          <span class="text-xs uppercase tracking-[0.25em] text-terracotta font-semibold block mb-3">
-            Bespoke Formulation
-          </span>
-          <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl text-walnut font-normal leading-tight mb-6">
-            Your kitchen. Your flavours. <br>
-            <span class="italic text-terracotta font-normal">Your blend.</span>
-          </h2>
-
-          <div class="space-y-4 text-walnut/80 text-base leading-relaxed font-light mb-8">
-            <p>
-              Every kitchen is different. Every family has its own traditions. Every palate has its own preferences.
-            </p>
-            <p>
-              Tell us what you cook, what you love and what you want your spices to bring to your food.
-            </p>
-            <p>
-              We will help you discover, blend and create spices that feel uniquely yours.
-            </p>
-          </div>
-
-          <a href="#enquiry" class="inline-flex items-center px-8 py-3.5 rounded-full text-xs uppercase tracking-[0.18em] font-semibold bg-terracotta text-ivory-light hover:bg-terracotta-dark transition-all duration-300 shadow-sm">
-            Create My Personal Blend
-          </a>
-        </div>
-
-        <!-- Right: Interactive Personalisation Parameters Grid -->
-        <div class="lg:col-span-6 fade-in-section">
-          <div class="bg-ivory-light p-8 sm:p-10 rounded-2xl border border-stone/30 shadow-md">
-            <h3 class="font-serif text-2xl text-walnut mb-6 pb-3 border-b border-stone/20">
-              Personalisation Parameters
-            </h3>
-
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-              
-              <div class="flex items-start space-x-3.5">
-                <div class="w-8 h-8 rounded-lg bg-terracotta/10 text-terracotta flex items-center justify-center shrink-0 mt-0.5">
-                  <i data-lucide="flame" class="w-4 h-4"></i>
-                </div>
-                <div>
-                  <h4 class="font-medium text-sm text-walnut">Spice Intensity & Heat</h4>
-                  <p class="text-xs text-walnut/70 mt-1 font-light leading-relaxed">
-                    From gentle fragrance to robust Mathania chili warmth.
-                  </p>
-                </div>
-              </div>
-
-              <div class="flex items-start space-x-3.5">
-                <div class="w-8 h-8 rounded-lg bg-terracotta/10 text-terracotta flex items-center justify-center shrink-0 mt-0.5">
-                  <i data-lucide="wind" class="w-4 h-4"></i>
-                </div>
-                <div>
-                  <h4 class="font-medium text-sm text-walnut">Aromatic Preferences</h4>
-                  <p class="text-xs text-walnut/70 mt-1 font-light leading-relaxed">
-                    Prioritising floral cardamom, sweet mace, or woody cassia notes.
-                  </p>
-                </div>
-              </div>
-
-              <div class="flex items-start space-x-3.5">
-                <div class="w-8 h-8 rounded-lg bg-terracotta/10 text-terracotta flex items-center justify-center shrink-0 mt-0.5">
-                  <i data-lucide="compass" class="w-4 h-4"></i>
-                </div>
-                <div>
-                  <h4 class="font-medium text-sm text-walnut">Regional Nuances</h4>
-                  <p class="text-xs text-walnut/70 mt-1 font-light leading-relaxed">
-                    Awadhi, Malabari, Gujarati, Bengali Panch Phoron or Chettinad inflections.
-                  </p>
-                </div>
-              </div>
-
-              <div class="flex items-start space-x-3.5">
-                <div class="w-8 h-8 rounded-lg bg-terracotta/10 text-terracotta flex items-center justify-center shrink-0 mt-0.5">
-                  <i data-lucide="utensils" class="w-4 h-4"></i>
-                </div>
-                <div>
-                  <h4 class="font-medium text-sm text-walnut">Everyday Cooking Habits</h4>
-                  <p class="text-xs text-walnut/70 mt-1 font-light leading-relaxed">
-                    Calibrated specifically for dal, slow roasts, or quick morning sautés.
-                  </p>
-                </div>
-              </div>
-
-              <div class="flex items-start space-x-3.5">
-                <div class="w-8 h-8 rounded-lg bg-terracotta/10 text-terracotta flex items-center justify-center shrink-0 mt-0.5">
-                  <i data-lucide="book-open" class="w-4 h-4"></i>
-                </div>
-                <div>
-                  <h4 class="font-medium text-sm text-walnut">Family Heirloom Recipes</h4>
-                  <p class="text-xs text-walnut/70 mt-1 font-light leading-relaxed">
-                    Documented from grandmother's spoken notes and taste memories.
-                  </p>
-                </div>
-              </div>
-
-              <div class="flex items-start space-x-3.5">
-                <div class="w-8 h-8 rounded-lg bg-terracotta/10 text-terracotta flex items-center justify-center shrink-0 mt-0.5">
-                  <i data-lucide="sliders" class="w-4 h-4"></i>
-                </div>
-                <div>
-                  <h4 class="font-medium text-sm text-walnut">Grind Texture Choice</h4>
-                  <p class="text-xs text-walnut/70 mt-1 font-light leading-relaxed">
-                    Coarse crushed for tadka, silken for tea, or medium rustic for curries.
-                  </p>
-                </div>
-              </div>
-
-            </div>
-
-            <div class="mt-8 pt-6 border-t border-stone/20 bg-ivory-cream/60 -mx-8 -mb-8 p-6 rounded-b-2xl flex items-center justify-between text-xs text-sage">
-              <span>Personalised batch: 100g to 500g</span>
-              <span class="font-semibold text-walnut uppercase tracking-wider">Ground in your presence</span>
-            </div>
-          </div>
-        </div>
-
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ==================== SECTION 7 — MY MOTHER'S RECIPE ==================== -->
-  <section id="mother-recipe" class="py-24 bg-ivory-light relative overflow-hidden">
-    <div class="max-w-7xl mx-auto px-6 lg:px-12">
-      
-      <div class="relative bg-walnut text-ivory rounded-3xl p-8 sm:p-14 lg:p-20 overflow-hidden shadow-2xl fade-in-section">
-        <!-- Subtle warm texture backdrop -->
-        <div class="absolute inset-0 opacity-15 bg-[radial-gradient(#E9DFC9_1px,transparent_1px)] [background-size:16px_16px]"></div>
-        
-        <div class="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          <h1 class="hero-title">
+            Clean Spices.<br>
+            Your Grandmother's Taste.<br>
+            <span class="text-terracotta">Ground at Your Doorstep.</span>
+          </h1>
+          <span class="hero-hindi-sub">दादी-नानी का असली स्वाद • हम आते हैं आपके घर, आपके चुने हुए मसालों को ताज़ा कूटने के लिए</span>
           
-          <div class="lg:col-span-7">
-            <span class="text-xs uppercase tracking-[0.25em] text-brass font-medium block mb-4">
-              Preserving Family Heritage
-            </span>
-            <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl text-ivory font-normal leading-tight mb-6">
-              Some recipes are memories.
-            </h2>
+          <p class="hero-desc">
+            No 12-month-old grocery store packets. No extracted essential oils, chalk fillers, or artificial colors. You choose whole, single-origin sun-dried spices from our atelier, and <strong>our master artisan arrives at your apartment society</strong> to cold-pound them live right before your eyes.
+          </p>
 
-            <div class="space-y-4 text-ivory/85 text-base sm:text-lg font-light leading-relaxed mb-8">
-              <p>
-                That masala your grandmother made. The taste you remember from childhood. The blend nobody ever wrote down.
-              </p>
-              <p>
-                Bring us your memory, your recipe or the ingredients you remember.
-              </p>
-              <p>
-                Together, we will recreate it, document it and grind it fresh.
-              </p>
-              <p class="font-serif italic text-brass-light text-xl pt-2">
-                "A recipe remembered. A tradition preserved."
-              </p>
-            </div>
-
-            <a href="#enquiry" class="inline-flex items-center px-8 py-3.5 rounded-full text-xs uppercase tracking-[0.18em] font-semibold bg-terracotta text-ivory-light hover:bg-terracotta-dark transition-all duration-300 shadow-md">
-              Recreate My Family Recipe
+          <div class="hero-cta-group">
+            <button class="btn btn-primary btn-lg btn-open-booking-modal">
+              <span>🌿 Invite Us to Your Apartment</span>
+            </button>
+            <a href="#spice-catalog" class="btn btn-secondary btn-lg">
+              <span>🌶️ Explore Spices &amp; Launches</span>
             </a>
           </div>
 
-          <div class="lg:col-span-5">
-            <div class="relative bg-ivory-light text-walnut p-8 rounded-2xl border border-brass/40 shadow-xl transform lg:rotate-1 hover:rotate-0 transition-transform duration-500">
-              <div class="border-b border-stone/30 pb-4 mb-4 flex items-center justify-between">
-                <span class="font-serif italic text-lg text-terracotta">An Heirloom Archive</span>
-                <i data-lucide="feather" class="w-5 h-5 text-brass"></i>
+          <div class="hero-trust-bar">
+            <div class="trust-item">
+              <span class="trust-icon">🏺</span>
+              <div class="trust-text">
+                <strong>Live Stone-Pounded</strong>
+                Zero heat, 100% volatile oils
               </div>
-              <p class="font-serif italic text-sm text-walnut/80 leading-relaxed mb-4">
-                "Two pinches of dagad phool, roasted jeera until it sings, and cloves ground fine between the palms..."
-              </p>
-              <div class="text-[11px] uppercase tracking-wider text-sage font-medium space-y-1">
-                <p>• Ingredient profiling & ratio tasting</p>
-                <p>• Archival recipe card in handwritten calligraphy</p>
-                <p>• Freshly ground batch sealed in dark glass</p>
+            </div>
+            <div class="trust-item">
+              <span class="trust-icon">🌿</span>
+              <div class="trust-text">
+                <strong>100% Lab Clean</strong>
+                0 fillers, 0 starch, 0 adulterants
+              </div>
+            </div>
+            <div class="trust-item">
+              <span class="trust-icon">🏢</span>
+              <div class="trust-text">
+                <strong>85+ Societies Visited</strong>
+                Bangalore &amp; Delhi NCR
               </div>
             </div>
           </div>
+        </div>
 
+        <div class="hero-media-wrapper">
+          <div class="hero-station-card">
+            <img src="brand-identity/mockups/mockup-4-grinding-station.svg" alt="Ookhal Musal Traditional Grinding Station" class="hero-station-img">
+            
+            <div class="hero-floating-pill pill-top-right">
+              <span style="font-size: 1.2rem;">✨</span>
+              <div>
+                <strong style="display: block; font-size: 0.86rem;">Aroma You Remember</strong>
+                <span style="font-size: 0.74rem; color: var(--sage);">Released live at your doorstep</span>
+              </div>
+            </div>
+
+            <div class="hero-floating-pill pill-bottom-left">
+              <span style="font-size: 1.2rem;">🏡</span>
+              <div>
+                <strong style="display: block; font-size: 0.86rem;">Society Pop-Up Camps</strong>
+                <span style="font-size: 0.74rem; color: var(--terracotta);">Book for 5 to 100+ flats</span>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-
     </div>
   </section>
 
-  <!-- ==================== SECTION 8 — OUR INGREDIENTS ==================== -->
-  <section id="ingredients" class="py-24 bg-ivory-cream border-b border-stone/20 relative">
-    <div class="max-w-7xl mx-auto px-6 lg:px-12">
-      
-      <!-- Section Header -->
-      <div class="max-w-3xl mb-16 fade-in-section">
-        <span class="text-xs uppercase tracking-[0.25em] text-terracotta font-semibold block mb-3">
-          Botanical Integrity
-        </span>
-        <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl text-walnut font-normal leading-tight mb-4">
-          Whole spices. Honest ingredients.
-        </h2>
-        <p class="text-walnut/75 text-base sm:text-lg font-light leading-relaxed">
-          We curate spices in their whole, botanical state — understanding their moisture, aromatic profile, and oil richness before they are carefully stored in cool, dark containers and ground in small quantities.
+  <!-- The USP & Grandmother's Taste Comparison -->
+  <section class="usp-section" id="usp-story">
+    <div class="container">
+      <div class="section-intro">
+        <span class="section-pretitle">The Secret of Nostalgia</span>
+        <h2 class="section-title">Why Store-Bought Masalas Don't Taste Like Grandmother's Kitchen</h2>
+        <p class="section-lead">
+          Remember walking into your grandmother's courtyard when she was pounding roasted garam masala or turmeric? The entire house was filled with an unforgettable fragrance. Here is what happened to modern spices:
         </p>
       </div>
 
-      <!-- Categories Grid -->
-      <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-4 fade-in-section">
-        
-        <!-- Category 1: Seeds -->
-        <div class="bg-ivory-light p-6 rounded-2xl border border-stone/30 text-center hover:border-terracotta/40 transition-all">
-          <div class="w-12 h-12 mx-auto mb-3 rounded-full bg-stone/15 flex items-center justify-center text-walnut">
-            <i data-lucide="circle-dot" class="w-5 h-5 text-terracotta"></i>
+      <div class="usp-comparison-grid">
+        <!-- Industrial Packets -->
+        <div class="comparison-box industrial">
+          <div class="comparison-header">
+            <div class="comparison-icon">📦</div>
+            <div>
+              <h3 style="font-size: 1.35rem; color: #695F56;">Mass Market Packet Spices</h3>
+              <span style="font-size: 0.8rem; color: #8F8479;">Supermarket Shelf Brands</span>
+            </div>
           </div>
-          <h3 class="font-serif text-lg text-walnut mb-1">Seeds</h3>
-          <p class="text-[11px] text-walnut/60 font-light">Cumin, Fennel, Coriander, Ajwain</p>
+          <ul class="comparison-list">
+            <li>
+              <span class="cross-bullet">✕</span>
+              <div><strong>High-Speed Industrial Heat:</strong> Commercial pulverizers heat up to 80°C, scorching fragile flavor compounds and burning delicate essential oils before packing.</div>
+            </li>
+            <li>
+              <span class="cross-bullet">✕</span>
+              <div><strong>Pre-Extracted Oleoresins:</strong> Industrial processors frequently extract expensive natural essential oils for perfume/pharma exports, leaving behind spent fibrous powder.</div>
+            </li>
+            <li>
+              <span class="cross-bullet">✕</span>
+              <div><strong>Starch &amp; Anti-Caking Agents:</strong> Bulking powders, rice flour, artificial dyes (Sudan red, metanil yellow), and silica are added for cheap shelf stability.</div>
+            </li>
+            <li>
+              <span class="cross-bullet">✕</span>
+              <div><strong>Stale Shelf Life:</strong> Ground 6 to 18 months ago in a distant factory, oxidized inside plastic foil bags with zero aroma left.</div>
+            </li>
+          </ul>
         </div>
 
-        <!-- Category 2: Roots -->
-        <div class="bg-ivory-light p-6 rounded-2xl border border-stone/30 text-center hover:border-terracotta/40 transition-all">
-          <div class="w-12 h-12 mx-auto mb-3 rounded-full bg-stone/15 flex items-center justify-center text-walnut">
-            <i data-lucide="fingerprint" class="w-5 h-5 text-terracotta"></i>
+        <!-- Ookhal Musal Way -->
+        <div class="comparison-box ookhal">
+          <div class="comparison-header">
+            <div class="comparison-icon">🏺</div>
+            <div>
+              <h3 style="font-size: 1.35rem; color: var(--walnut);">The Ookhal Musal Doorstep Atelier</h3>
+              <span style="font-size: 0.8rem; color: var(--terracotta); font-weight: 600;">Custom Ground at Your Apartment</span>
+            </div>
           </div>
-          <h3 class="font-serif text-lg text-walnut mb-1">Roots</h3>
-          <p class="text-[11px] text-walnut/60 font-light">Sun-dried Turmeric, Dry Ginger</p>
+          <ul class="comparison-list">
+            <li>
+              <span class="check-bullet">✓</span>
+              <div><strong>Cold-Pounded in Front of You:</strong> Traditional heavy stone mortar (Ookhal) and brass pestle (Musal) crush cell walls at ambient temperature with zero nutrient loss.</div>
+            </li>
+            <li>
+              <span class="check-bullet">✓</span>
+              <div><strong>100% Volatile Essential Oils Intact:</strong> The aromatic piperine, curcumin, and cineole oils stay inside the spice, creating breathtaking taste in simple dal and sabzi.</div>
+            </li>
+            <li>
+              <span class="check-bullet">✓</span>
+              <div><strong>Zero Chemical Adulteration:</strong> Single-origin sun-dried seeds hand-sorted and certified clean. You inspect the whole seeds yourself before grinding starts.</div>
+            </li>
+            <li>
+              <span class="check-bullet">✓</span>
+              <div><strong>Tailored to Your Texture:</strong> Choose your family's preferred coarseness—coarse *dardara* for tempering, silky fine for curries, or cracked for biryanis.</div>
+            </li>
+          </ul>
         </div>
-
-        <!-- Category 3: Bark -->
-        <div class="bg-ivory-light p-6 rounded-2xl border border-stone/30 text-center hover:border-terracotta/40 transition-all">
-          <div class="w-12 h-12 mx-auto mb-3 rounded-full bg-stone/15 flex items-center justify-center text-walnut">
-            <i data-lucide="scroll" class="w-5 h-5 text-terracotta"></i>
-          </div>
-          <h3 class="font-serif text-lg text-walnut mb-1">Bark</h3>
-          <p class="text-[11px] text-walnut/60 font-light">Ceylon Cinnamon, Cassia quills</p>
-        </div>
-
-        <!-- Category 4: Pods -->
-        <div class="bg-ivory-light p-6 rounded-2xl border border-stone/30 text-center hover:border-terracotta/40 transition-all">
-          <div class="w-12 h-12 mx-auto mb-3 rounded-full bg-stone/15 flex items-center justify-center text-walnut">
-            <i data-lucide="layers" class="w-5 h-5 text-terracotta"></i>
-          </div>
-          <h3 class="font-serif text-lg text-walnut mb-1">Pods</h3>
-          <p class="text-[11px] text-walnut/60 font-light">Green Cardamom, Black Cardamom</p>
-        </div>
-
-        <!-- Category 5: Flowers -->
-        <div class="bg-ivory-light p-6 rounded-2xl border border-stone/30 text-center hover:border-terracotta/40 transition-all">
-          <div class="w-12 h-12 mx-auto mb-3 rounded-full bg-stone/15 flex items-center justify-center text-walnut">
-            <i data-lucide="flower-2" class="w-5 h-5 text-terracotta"></i>
-          </div>
-          <h3 class="font-serif text-lg text-walnut mb-1">Flowers</h3>
-          <p class="text-[11px] text-walnut/60 font-light">Cloves, Mace blades, Star Anise</p>
-        </div>
-
-        <!-- Category 6: Leaves -->
-        <div class="bg-ivory-light p-6 rounded-2xl border border-stone/30 text-center hover:border-terracotta/40 transition-all">
-          <div class="w-12 h-12 mx-auto mb-3 rounded-full bg-stone/15 flex items-center justify-center text-walnut">
-            <i data-lucide="leaf" class="w-5 h-5 text-terracotta"></i>
-          </div>
-          <h3 class="font-serif text-lg text-walnut mb-1">Leaves</h3>
-          <p class="text-[11px] text-walnut/60 font-light">Tejpatta, Kasuri Methi, Curry Leaf</p>
-        </div>
-
-        <!-- Category 7: Whole Peppers -->
-        <div class="bg-ivory-light p-6 rounded-2xl border border-stone/30 text-center hover:border-terracotta/40 transition-all col-span-2 md:col-span-1">
-          <div class="w-12 h-12 mx-auto mb-3 rounded-full bg-stone/15 flex items-center justify-center text-walnut">
-            <i data-lucide="dot" class="w-5 h-5 text-terracotta"></i>
-          </div>
-          <h3 class="font-serif text-lg text-walnut mb-1">Peppers</h3>
-          <p class="text-[11px] text-walnut/60 font-light">Malabar Tellicherry, White Pepper</p>
-        </div>
-
       </div>
 
+      <!-- Sensory Quote Banner -->
+      <div class="sensory-banner">
+        <div>
+          <blockquote class="sensory-quote">
+            "Some wisdom is best ground fresh. When spices are crushed gently in a heavy stone mortar, the kitchen remembers what true nourishment tastes like."
+          </blockquote>
+          <div class="sensory-attribution">
+            — The Philosophy of Ookhal Musal (उखल मूसल)
+          </div>
+        </div>
+        <div class="sensory-stats">
+          <div class="stat-pill">
+            <span class="stat-number">100%</span>
+            <span class="stat-label">Essential Oils Retained</span>
+          </div>
+          <div class="stat-pill">
+            <span class="stat-number">0%</span>
+            <span class="stat-label">Industrial Heat &amp; Fillers</span>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- ==================== SECTION 9 — THE EXPERIENCE ==================== -->
-  <section id="experience" class="py-24 bg-ivory-light relative">
-    <div class="max-w-7xl mx-auto px-6 lg:px-12">
-      
-      <div class="text-center max-w-3xl mx-auto mb-16 fade-in-section">
-        <span class="text-xs uppercase tracking-[0.25em] text-terracotta font-semibold block mb-3">
-          The Atelier Journey
-        </span>
-        <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl text-walnut font-normal leading-tight mb-4">
-          More than buying spices. <br>
-          <span class="italic text-terracotta font-normal">An experience worth smelling.</span>
-        </h2>
-        <p class="text-walnut/70 text-base font-light">
-          We bring spice craftsmanship directly to you through private appointments, curated spice consultations, and intimate blending sessions.
+  <!-- How It Works (4 Simple Steps) -->
+  <section class="ritual-section" id="how-it-works">
+    <div class="container">
+      <div class="section-intro">
+        <span class="section-pretitle">Effortless Doorstep Hospitality</span>
+        <h2 class="section-title">How Ookhal Musal Comes to Your Apartment</h2>
+        <p class="section-lead">
+          We bring our complete mobile artisanal grinding station, whole spice jars, and hygiene protocols straight to your society courtyard, clubhouse, or lobby.
         </p>
       </div>
 
-      <!-- Experience Timeline / Journey -->
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 fade-in-section">
-        
-        <div class="p-6 rounded-2xl bg-ivory-cream border border-stone/20 relative">
-          <span class="text-xs font-semibold text-brass uppercase tracking-widest">Step 01</span>
-          <h3 class="font-serif text-xl text-walnut mt-2 mb-2">We understand your kitchen</h3>
-          <p class="text-xs text-walnut/75 font-light leading-relaxed">
-            We begin with a conversation about what your household cooks most often, your dietary preferences, and your ideal flavour balance.
+      <div class="steps-grid">
+        <div class="step-card">
+          <span class="step-number">01</span>
+          <div class="step-icon">📋</div>
+          <h3 class="step-title">Invite Us Online</h3>
+          <p class="step-desc">
+            Fill our quick 60-second invitation form. Select your society name, location, and preferred weekend slot. Whether you are 5 neighbors or a 500-flat RWA community, we cater to all.
           </p>
         </div>
 
-        <div class="p-6 rounded-2xl bg-ivory-cream border border-stone/20 relative">
-          <span class="text-xs font-semibold text-brass uppercase tracking-widest">Step 02</span>
-          <h3 class="font-serif text-xl text-walnut mt-2 mb-2">You inspect the botanicals</h3>
-          <p class="text-xs text-walnut/75 font-light leading-relaxed">
-            Whole spices are laid out for you to observe their colour, touch their surfaces, and inhale their dry nuances before selection.
+        <div class="step-card">
+          <span class="step-number">02</span>
+          <div class="step-icon">🌶️</div>
+          <h3 class="step-title">Select Your Spices</h3>
+          <p class="step-desc">
+            Browse our single-origin harvests (Lakadong turmeric, Wayanad pepper, Alleppey cardamom) and grandmother's heirloom masalas. Pre-select what your household loves.
           </p>
         </div>
 
-        <div class="p-6 rounded-2xl bg-ivory-cream border border-stone/20 relative">
-          <span class="text-xs font-semibold text-brass uppercase tracking-widest">Step 03</span>
-          <h3 class="font-serif text-xl text-walnut mt-2 mb-2">Ground fresh before you</h3>
-          <p class="text-xs text-walnut/75 font-light leading-relaxed">
-            As the spices are ground, the room fills with an intoxicating cloud of essential aroma that store-bought jars cannot offer.
+        <div class="step-card">
+          <span class="step-number">03</span>
+          <div class="step-icon">🚚</div>
+          <h3 class="step-title">Our Atelier Sets Up</h3>
+          <p class="step-desc">
+            Our master grinder arrives at your society with sterilized granite mortars, brass pestles, digital scales, and food-grade glass jars. Residents gather to sample live aroma.
           </p>
         </div>
 
-        <div class="p-6 rounded-2xl bg-ivory-cream border border-stone/20 relative">
-          <span class="text-xs font-semibold text-brass uppercase tracking-widest">Step 04</span>
-          <h3 class="font-serif text-xl text-walnut mt-2 mb-2">Sealed for your pantry</h3>
-          <p class="text-xs text-walnut/75 font-light leading-relaxed">
-            Your personalised blend is jarred immediately with its bespoke formula inscribed for effortless future refills.
+        <div class="step-card">
+          <span class="step-number">04</span>
+          <div class="step-icon">🏺</div>
+          <h3 class="step-title">Ground Live &amp; Fresh</h3>
+          <p class="step-desc">
+            Watch your selected seeds crushed in real-time. Specify your preferred coarseness. Take home still-warm, intensely fragrant pure spices sealed in heirloom packaging.
           </p>
         </div>
+      </div>
+    </div>
+  </section>
 
+  <!-- Dynamic Spice Collection & New Launches Section -->
+  <section class="spices-section" id="spice-catalog">
+    <div class="container">
+      <div class="section-intro">
+        <span class="section-pretitle">The Living Spice Atelier</span>
+        <h2 class="section-title">Available Spices &amp; New Launches</h2>
+        <p class="section-lead">
+          Every harvest is single-origin, lab-tested, and sun-dried. Pick your spices below to automatically add them to your society grinding visit request!
+        </p>
       </div>
 
-      <div class="mt-12 text-center">
-        <a href="#enquiry" class="inline-flex items-center px-8 py-3.5 rounded-full text-xs uppercase tracking-[0.18em] font-semibold bg-walnut text-ivory-light hover:bg-terracotta transition-all duration-300 shadow-sm">
-          Book Your Spice Experience
+      <!-- Controls: Category Tabs & Search -->
+      <div class="catalog-controls">
+        <div class="filter-tabs">
+          <button class="filter-btn active" data-filter="all">All Spices</button>
+          <button class="filter-btn" data-filter="new-launches">✨ New Launches &amp; Seasonal</button>
+          <button class="filter-btn" data-filter="heirloom-blends">👑 Heirloom Blends</button>
+          <button class="filter-btn" data-filter="single-origin">🌿 Single-Origin Whole</button>
+          <button class="filter-btn" data-filter="in-stock">✓ Available in Season</button>
+        </div>
+
+        <div class="search-box-wrap">
+          <svg class="search-icon-svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+          <input type="text" id="spice-search-input" class="search-input" placeholder="Search turmeric, pepper, garam masala...">
+        </div>
+      </div>
+
+      <!-- Spices Grid (Injected via app.js) -->
+      <div class="spices-grid" id="spices-grid-container">
+        <!-- Rendered dynamically -->
+      </div>
+
+      <!-- Selected Spices Floating Tray -->
+      <div class="wishlist-summary-bar" id="wishlist-summary-bar" style="display: none;">
+        <div class="wishlist-count-info">
+          <div class="wishlist-counter-circle" id="wishlist-count-badge">0</div>
+          <div>
+            <strong style="display: block; font-size: 1.05rem;">Spices Selected for Your Doorstep Visit</strong>
+            <span style="font-size: 0.85rem; color: var(--ivory); opacity: 0.85;">These spices will be carried by our artisan to your apartment!</span>
+          </div>
+        </div>
+        <a href="#invite-apartment" class="btn btn-gold">
+          <span>Continue to Apartment Booking &rarr;</span>
         </a>
       </div>
-
     </div>
   </section>
 
-  <!-- ==================== SECTION 10 — BRAND MANIFESTO ==================== -->
-  <section id="manifesto" class="py-28 bg-walnut text-ivory relative border-y border-walnut-dark">
-    <div class="max-w-4xl mx-auto px-6 lg:px-12 text-center fade-in-section">
-      
-      <!-- Small decorative motif -->
-      <div class="w-12 h-0.5 bg-brass mx-auto mb-10 opacity-70"></div>
-
-      <div class="space-y-6 font-serif text-xl sm:text-2xl lg:text-3xl font-light leading-relaxed text-ivory/95">
-        <p>We believe food deserves intention.</p>
-        
-        <p>We believe that the kitchen is where care begins.</p>
-        
-        <p class="italic text-ivory">
-          That a pinch of spice can hold the memory of a grandmother, the warmth of a home and the wisdom of generations.
-        </p>
-        
-        <p>
-          We believe spices should be whole before they are ground, understood before they are blended, and freshly awakened before they enter your food.
-        </p>
-        
-        <p>
-          We believe that aroma is part of the experience. That ingredients deserve to be seen. That the act of making matters as much as what is made.
-        </p>
-        
-        <p class="text-brass-light pt-2">
-          So we return to the old ways — not because they are old, but because they remind us what matters.
-        </p>
-      </div>
-
-      <div class="mt-12 pt-8 border-t border-white/10 max-w-md mx-auto">
-        <p class="text-xs uppercase tracking-[0.3em] text-stone font-medium mb-3">
-          We select. We measure. We grind. <br> Right before your eyes.
-        </p>
-        <span class="font-display tracking-[0.25em] text-2xl sm:text-3xl uppercase text-ivory block mb-2">
-          Ookhal Musal
-        </span>
-        <p class="font-serif italic text-brass text-lg">
-          "Some wisdom is best ground fresh."
-        </p>
-      </div>
-
-      <!-- Small decorative motif -->
-      <div class="w-12 h-0.5 bg-brass mx-auto mt-10 opacity-70"></div>
-
-    </div>
-  </section>
-
-  <!-- ==================== SECTION 11 — ENQUIRY / BOOKING ==================== -->
-  <section id="enquiry" class="py-24 bg-ivory-light relative">
-    <div class="max-w-7xl mx-auto px-6 lg:px-12">
-      
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
-        
-        <!-- Left: Form Introduction & Direct WhatsApp Option -->
-        <div class="lg:col-span-5 fade-in-section">
-          <span class="text-xs uppercase tracking-[0.25em] text-terracotta font-semibold block mb-3">
-            Begin A Consultation
+  <!-- Apartment / Society Invitation Section (Primary Lead Generator) -->
+  <section class="apartment-section" id="invite-apartment">
+    <div class="container">
+      <div class="apartment-grid">
+        <!-- Left: Why Society Camps are Loved -->
+        <div class="apartment-info">
+          <span class="form-header-badge">
+            <span style="font-size: 1rem;">🏢</span> Community Grinding Camp
           </span>
-          <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl text-walnut font-normal leading-tight mb-6">
-            Let's make something that belongs in your kitchen.
+          <h2 class="form-main-title">
+            Invite Ookhal Musal to Your Apartment Society
           </h2>
-
-          <p class="text-walnut/80 text-base leading-relaxed font-light mb-8">
-            Whether you desire a customised everyday masala, wish to recreate an irreplaceable family heirloom recipe, or want to host a private fresh-grinding session — we would love to converse.
+          <p style="font-size: 1.05rem; line-height: 1.7; color: #58483C; margin-bottom: 24px;">
+            Whether you live in a gated residential high-rise, a boutique apartment block, or an RWA villa community, we make organizing a live spice pounding camp simple and delightful.
           </p>
 
-          <!-- WhatsApp Direct Alternative Card -->
-          <div class="bg-ivory-cream p-6 rounded-2xl border border-stone/30 shadow-sm mb-6">
-            <div class="flex items-center space-x-3 mb-2">
-              <div class="w-8 h-8 rounded-full bg-emerald-700/10 text-emerald-800 flex items-center justify-center">
-                <i data-lucide="message-circle" class="w-4 h-4"></i>
+          <div class="society-perks">
+            <div class="perk-item">
+              <div class="perk-icon-circle">✨</div>
+              <div>
+                <h4 class="perk-title">Free Tasting &amp; Live Aroma Demonstration</h4>
+                <p class="perk-desc">Residents get to smell the intoxicating difference between cold stone-crushed cardamom, pepper, and store powders.</p>
               </div>
-              <h3 class="font-medium text-sm text-walnut">Prefer a quick conversation?</h3>
             </div>
-            <p class="text-xs text-walnut/70 mb-4 font-light leading-relaxed">
-              Message us directly on WhatsApp to discuss your kitchen preferences or schedule an appointment.
-            </p>
-            <a 
-              id="whatsapp-direct-btn"
-              href="https://wa.me/919876543210?text=Hello%20Ookhal%20Musal,%20I%20would%20like%20to%20learn%20more%20about%20your%20fresh-ground%20spice%20experience." 
-              target="_blank" 
-              rel="noopener noreferrer"
-              class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-xs font-semibold tracking-wider uppercase bg-[#25D366] text-white hover:bg-[#1EBE5D] transition-colors"
-            >
-              <i data-lucide="message-square" class="w-3.5 h-3.5"></i> Chat on WhatsApp
-            </a>
-          </div>
 
-          <p class="text-xs text-sage font-light">
-            *Placeholder contact: configurable for your operational phone number.
-          </p>
+            <div class="perk-item">
+              <div class="perk-icon-circle">⚖️</div>
+              <div>
+                <h4 class="perk-title">Zero Upfront Cost for Societies</h4>
+                <p class="perk-desc">No fee for the society or host! Residents only pay for the individual spices they choose to take home in fresh jars.</p>
+              </div>
+            </div>
+
+            <div class="perk-item">
+              <div class="perk-icon-circle">📲</div>
+              <div>
+                <h4 class="perk-title">Pre-Made WhatsApp &amp; Noticeboard Creatives</h4>
+                <p class="perk-desc">We share a ready-to-forward PDF poster and WhatsApp announcement invite that you can post directly on your MyGate / ADDA / Society WhatsApp group.</p>
+              </div>
+            </div>
+          </div>
         </div>
 
-        <!-- Right: Interactive Validated Booking Form -->
-        <div class="lg:col-span-7 fade-in-section">
-          <div class="bg-ivory-cream p-8 sm:p-12 rounded-3xl border border-stone/30 shadow-xl relative">
-            
-            <form id="spice-enquiry-form" onsubmit="handleFormSubmit(event)" class="space-y-6">
-              
-              <!-- Form Feedback Banner (Success / Error) -->
-              <div id="form-alert" class="hidden p-4 rounded-xl text-sm transition-all duration-300"></div>
+        <!-- Right: The High-Converting Lead Form (HubSpot Connected) -->
+        <div class="booking-form-card">
+          <span class="badge-tag badge-launch" style="margin-bottom: 12px;">Instant Community Reservation</span>
+          <h3 style="font-family: var(--font-serif); font-size: 1.8rem; margin-bottom: 6px;">Reserve a Weekend Atelier Slot</h3>
+          <p class="form-sub-note">Fill your details below. Our Society Experience Concierge will WhatsApp you within 4 hours to coordinate.</p>
 
-              <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                <!-- Name -->
-                <div>
-                  <label for="name" class="block text-xs uppercase tracking-wider font-semibold text-walnut mb-2">
-                    Your Full Name <span class="text-terracotta">*</span>
-                  </label>
-                  <input 
-                    type="text" 
-                    id="name" 
-                    name="name" 
-                    required 
-                    placeholder="e.g. Radhika Sharma"
-                    class="w-full px-4 py-3 rounded-xl bg-ivory-light border border-stone/40 text-walnut placeholder-stone-dark/60 text-sm focus:outline-none focus:border-terracotta focus:ring-1 focus:ring-terracotta transition-colors"
-                  />
-                </div>
+          <form id="apartment-booking-form" novalidate>
+            <!-- Hidden Selected Spices Tracker -->
+            <input type="hidden" id="form-selected-spices-hidden" name="selectedSpices" value="">
+            <input type="hidden" id="form-household-size" name="communitySize" value="10-25 Households">
 
-                <!-- Phone Number -->
-                <div>
-                  <label for="phone" class="block text-xs uppercase tracking-wider font-semibold text-walnut mb-2">
-                    Phone Number <span class="text-terracotta">*</span>
-                  </label>
-                  <input 
-                    type="tel" 
-                    id="phone" 
-                    name="phone" 
-                    required 
-                    placeholder="e.g. +91 98765 43210"
-                    class="w-full px-4 py-3 rounded-xl bg-ivory-light border border-stone/40 text-walnut placeholder-stone-dark/60 text-sm focus:outline-none focus:border-terracotta focus:ring-1 focus:ring-terracotta transition-colors"
-                  />
-                </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label">Your Full Name <span class="req">*</span></label>
+                <input type="text" name="fullName" class="form-input" placeholder="e.g. Shikha Sharma" required>
               </div>
-
-              <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                <!-- Email -->
-                <div>
-                  <label for="email" class="block text-xs uppercase tracking-wider font-semibold text-walnut mb-2">
-                    Email Address <span class="text-terracotta">*</span>
-                  </label>
-                  <input 
-                    type="email" 
-                    id="email" 
-                    name="email" 
-                    required 
-                    placeholder="e.g. radhika@example.com"
-                    class="w-full px-4 py-3 rounded-xl bg-ivory-light border border-stone/40 text-walnut placeholder-stone-dark/60 text-sm focus:outline-none focus:border-terracotta focus:ring-1 focus:ring-terracotta transition-colors"
-                  />
-                </div>
-
-                <!-- City / Location -->
-                <div>
-                  <label for="city" class="block text-xs uppercase tracking-wider font-semibold text-walnut mb-2">
-                    City / Location <span class="text-terracotta">*</span>
-                  </label>
-                  <input 
-                    type="text" 
-                    id="city" 
-                    name="city" 
-                    required 
-                    placeholder="e.g. New Delhi / Mumbai / Bengaluru"
-                    class="w-full px-4 py-3 rounded-xl bg-ivory-light border border-stone/40 text-walnut placeholder-stone-dark/60 text-sm focus:outline-none focus:border-terracotta focus:ring-1 focus:ring-terracotta transition-colors"
-                  />
-                </div>
+              <div class="form-group">
+                <label class="form-label">WhatsApp Number <span class="req">*</span></label>
+                <input type="tel" name="phone" class="form-input" placeholder="e.g. +91 98765 43210" required>
               </div>
+            </div>
 
-              <!-- Enquiry Purpose -->
-              <div>
-                <label for="purpose" class="block text-xs uppercase tracking-wider font-semibold text-walnut mb-2">
-                  What are you looking for? <span class="text-terracotta">*</span>
-                </label>
-                <select 
-                  id="purpose" 
-                  name="purpose" 
-                  required
-                  class="w-full px-4 py-3 rounded-xl bg-ivory-light border border-stone/40 text-walnut text-sm focus:outline-none focus:border-terracotta focus:ring-1 focus:ring-terracotta transition-colors"
-                >
-                  <option value="" disabled selected>Select an option</option>
-                  <option value="Fresh-ground everyday masalas">Fresh-ground everyday masalas</option>
-                  <option value="Personalised spice blend">Personalised spice blend</option>
-                  <option value="Family recipe recreation">Family recipe recreation</option>
-                  <option value="Chai masala">Chai masala</option>
-                  <option value="Traditional spice blends">Traditional spice blends</option>
-                  <option value="Gifting">Gifting</option>
-                  <option value="Spice consultation">Spice consultation</option>
-                  <option value="Other">Other</option>
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label">Email Address (Optional)</label>
+                <input type="email" name="email" class="form-input" placeholder="shikha@example.com">
+              </div>
+              <div class="form-group">
+                <label class="form-label">Your Role in Society</label>
+                <select name="residentRole" class="form-select">
+                  <option value="Resident Host">Resident / Passionate Cook</option>
+                  <option value="RWA Committee Member">RWA Committee / Board Member</option>
+                  <option value="Food & Wellness Club Lead">Society Events / Club Organizer</option>
+                  <option value="Society Admin">Facility / Estate Manager</option>
                 </select>
               </div>
+            </div>
 
-              <!-- Kitchen / Preferences Narrative -->
-              <div>
-                <label for="notes" class="block text-xs uppercase tracking-wider font-semibold text-walnut mb-2">
-                  Tell us about your kitchen, recipes or preferences
-                </label>
-                <textarea 
-                  id="notes" 
-                  name="notes" 
-                  rows="4" 
-                  placeholder="Share the dishes you love to cook, favourite spice notes, heat tolerance, or memories of family recipes..."
-                  class="w-full px-4 py-3 rounded-xl bg-ivory-light border border-stone/40 text-walnut placeholder-stone-dark/60 text-sm focus:outline-none focus:border-terracotta focus:ring-1 focus:ring-terracotta transition-colors"
-                ></textarea>
+            <div class="form-group">
+              <label class="form-label">Apartment / Society Name <span class="req">*</span></label>
+              <input type="text" name="societyName" class="form-input" placeholder="e.g. Prestige Shantiniketan, Tower 4" required>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label">Tower / Flat / Villa No.</label>
+                <input type="text" name="flatNumber" class="form-input" placeholder="e.g. Flat 602, Tower B">
               </div>
-
-              <!-- Submit Button -->
-              <div>
-                <button 
-                  type="submit" 
-                  id="submit-btn"
-                  class="w-full py-4 rounded-xl text-xs uppercase tracking-[0.2em] font-semibold bg-terracotta text-ivory-light hover:bg-terracotta-dark transition-all duration-300 shadow-md flex items-center justify-center space-x-2"
-                >
-                  <span>Begin Your Spice Journey</span>
-                  <i data-lucide="arrow-right" class="w-4 h-4"></i>
-                </button>
+              <div class="form-group">
+                <label class="form-label">City &amp; Area <span class="req">*</span></label>
+                <input type="text" name="city" class="form-input" placeholder="e.g. Whitefield, Bangalore" required>
               </div>
+            </div>
 
-              <p class="text-center text-[11px] text-sage">
-                Your details remain private. We will reach out to schedule your personalized spice consultation.
-              </p>
+            <div class="form-group">
+              <label class="form-label">Approximate Number of Interested Households</label>
+              <div class="size-selector-grid">
+                <button type="button" class="size-btn" data-size="5-10 Households">5–10 Homes (Floor/Friends)</button>
+                <button type="button" class="size-btn active" data-size="10-25 Households">10–25 Homes (Tower)</button>
+                <button type="button" class="size-btn" data-size="25-50 Households">25–50 Homes (Wing)</button>
+                <button type="button" class="size-btn" data-size="50+ Households">50+ Homes (Grand Camp)</button>
+              </div>
+            </div>
 
-            </form>
+            <div class="form-group">
+              <label class="form-label">Preferred Weekend Slot</label>
+              <select name="preferredDate" class="form-select">
+                <option value="Upcoming Saturday Morning (9 AM - 1 PM)">Upcoming Saturday Morning (9 AM – 1 PM)</option>
+                <option value="Upcoming Sunday Morning (9 AM - 1 PM)">Upcoming Sunday Morning (9 AM – 1 PM)</option>
+                <option value="Upcoming Weekend Evening (4 PM - 8 PM)">Upcoming Weekend Evening (4 PM – 8 PM)</option>
+                <option value="Next Month Festive / Society Event">Next Month Festive / Special Event</option>
+              </select>
+            </div>
 
-          </div>
+            <!-- Dynamic Selected Spices Tags -->
+            <div class="form-group">
+              <label class="form-label">Spices Selected From Catalog for Your Visit</label>
+              <div class="selected-spices-box" id="selected-spices-tag-box">
+                <!-- Injected via app.js -->
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Special Requests or Gate Permissions Note (Optional)</label>
+              <textarea name="notes" class="form-textarea" placeholder="e.g. We have a clubhouse gazebo with power points; will announce on our society WhatsApp group."></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-lg" style="width: 100%; border-radius: var(--radius-sm);">
+              <span>🌿 Submit Apartment Invitation Request</span>
+            </button>
+
+            <div class="form-guarantee">
+              <span>🔒 <strong>Privacy Assured:</strong> No spam. We only contact you via WhatsApp to coordinate the event date and share society posters.</span>
+            </div>
+          </form>
         </div>
-
       </div>
-
     </div>
   </section>
 
-  <!-- ==================== FOOTER ==================== -->
-  <footer class="bg-walnut-deep text-ivory/80 pt-20 pb-12 border-t border-walnut">
-    <div class="max-w-7xl mx-auto px-6 lg:px-12">
-      
-      <div class="grid grid-cols-1 md:grid-cols-12 gap-12 pb-16 border-b border-white/10">
-        
-        <!-- Brand column -->
-        <div class="md:col-span-5">
-          <span class="font-display tracking-[0.25em] text-2xl uppercase text-ivory block mb-2">
-            Ookhal Musal
-          </span>
-          <p class="font-serif italic text-brass-light text-base mb-6">
-            "Some wisdom is best ground fresh."
-          </p>
-          <p class="text-xs text-ivory/70 max-w-sm leading-relaxed font-light">
-            A premium personalised spice atelier rooted in traditional Indian kitchen wisdom. We select, blend, and grind whole spices intentionally for your home.
-          </p>
-        </div>
-
-        <!-- Navigation Links -->
-        <div class="md:col-span-4">
-          <h4 class="text-xs uppercase tracking-[0.2em] font-semibold text-ivory mb-6">Explore Atelier</h4>
-          <ul class="space-y-3 text-xs tracking-wider uppercase">
-            <li><a href="#philosophy" class="hover:text-brass transition-colors">Our Story</a></li>
-            <li><a href="#ritual" class="hover:text-brass transition-colors">Fresh Grinding</a></li>
-            <li><a href="#blends" class="hover:text-brass transition-colors">Our Blends</a></li>
-            <li><a href="#personalise" class="hover:text-brass transition-colors">Personalisation</a></li>
-            <li><a href="#mother-recipe" class="hover:text-brass transition-colors">Mother's Recipe</a></li>
-            <li><a href="#enquiry" class="hover:text-brass transition-colors">Contact</a></li>
-          </ul>
-        </div>
-
-        <!-- Social & Contact Placeholder -->
-        <div class="md:col-span-3">
-          <h4 class="text-xs uppercase tracking-[0.2em] font-semibold text-ivory mb-6">Connect</h4>
-          <ul class="space-y-3 text-xs tracking-wider uppercase">
-            <li>
-              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="hover:text-brass transition-colors flex items-center gap-2">
-                <i data-lucide="instagram" class="w-4 h-4"></i> Instagram
-              </a>
-            </li>
-            <li>
-              <a href="https://wa.me/919876543210" target="_blank" rel="noopener noreferrer" class="hover:text-brass transition-colors flex items-center gap-2">
-                <i data-lucide="message-circle" class="w-4 h-4"></i> WhatsApp
-              </a>
-            </li>
-          </ul>
-          <p class="text-[11px] text-ivory/50 mt-6 font-light leading-relaxed">
-            *Inquiries are handled by prior appointment and tailored consultation.
-          </p>
-        </div>
-
-      </div>
-
-      <!-- Bottom Bar -->
-      <div class="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-ivory/50">
-        <p>© <span id="current-year"></span> Ookhal Musal. All rights reserved.</p>
-        <p class="mt-4 sm:mt-0 font-serif italic text-ivory/60">
-          Crafted with intention for discerning Indian kitchens.
+  <!-- Social Proof / Society Reviews -->
+  <section class="social-proof-section" id="testimonials">
+    <div class="container">
+      <div class="section-intro">
+        <span class="section-pretitle">Resident Love</span>
+        <h2 class="section-title">What Apartment Communities Say</h2>
+        <p class="section-lead">
+          Over 85 apartment complexes across Bangalore, Gurgaon, and Delhi have hosted our live stone-grinding camps.
         </p>
       </div>
 
+      <div class="testimonials-grid">
+        <div class="testimonial-card">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-text">
+            "When the master grinder started pounding the 16-spice garam masala in our clubhouse courtyard, the entire floor stopped to watch. The difference in taste in our weekend biryani was astonishing."
+          </p>
+          <div class="resident-info">
+            <div class="resident-avatar">AK</div>
+            <div>
+              <div class="resident-name">Ananya Kulkarni</div>
+              <div class="resident-society">Prestige Lakeside Habitat, Bangalore</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-text">
+            "The Lakadong turmeric is liquid gold. We held a small Sunday camp for 18 flats in our tower. Ookhal Musal provided WhatsApp posters and handled everything with zero hassle for the RWA."
+          </p>
+          <div class="resident-info">
+            <div class="resident-avatar">RS</div>
+            <div>
+              <div class="resident-name">Rohit Singhania</div>
+              <div class="resident-society">DLF Phase 5, Gurgaon</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-text">
+            "My mother-in-law was skeptical until she smelled the freshly pounded Wayanad pepper and roasted sambar podi. She said it took her back 40 years to her village in Palakkad. Brilliant initiative!"
+          </p>
+          <div class="resident-info">
+            <div class="resident-avatar">MN</div>
+            <div>
+              <div class="resident-name">Meera Nambiar</div>
+              <div class="resident-society">Sobha Silicon Oasis, Bangalore</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <img src="brand-identity/vector-svg/primary-logo-ivory-on-walnut.svg" alt="Ookhal Musal" class="footer-logo">
+          <p class="footer-tagline">"Some wisdom is best ground fresh."</p>
+          <p style="font-size: 0.88rem; color: rgba(233, 223, 201, 0.75); line-height: 1.6;">
+            A bespoke spice atelier bringing single-estate sun-dried spices and traditional live stone-pounding directly to your doorstep.
+          </p>
+        </div>
+
+        <div>
+          <h4 class="footer-heading">Experience</h4>
+          <ul class="footer-links">
+            <li><a href="#usp-story">Why We Come To You</a></li>
+            <li><a href="#how-it-works">How Doorstep Grinding Works</a></li>
+            <li><a href="#spice-catalog">Available Spices &amp; Harvests</a></li>
+            <li><a href="#invite-apartment">Invite to Your Society</a></li>
+            <li><a href="OOKHAL_MUSAL_BRAND_BOOK.html" target="_blank">Brand Identity &amp; System &rarr;</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-heading">Service Cities</h4>
+          <ul class="footer-links">
+            <li><a href="#invite-apartment">Bangalore (East, South, North)</a></li>
+            <li><a href="#invite-apartment">Gurgaon &amp; DLF Sectors</a></li>
+            <li><a href="#invite-apartment">Delhi NCR (Noida, South Delhi)</a></li>
+            <li><a href="#invite-apartment">Mumbai (Coming Soon)</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-heading">Atelier</h4>
+          <p style="font-size: 0.84rem; color: rgba(233, 223, 201, 0.75); margin-bottom: 14px;">
+            Personalised whole-spice blends, ground live at your apartment society.
+          </p>
+          <a href="#invite-apartment" class="btn btn-secondary btn-sm" style="border-color: var(--brass-light); color: var(--ivory);">
+            <span>🌿 Invite Us to Your Society</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>&copy; 2024–2026 OOKHAL MUSAL (उखल मूसल) LLP. All Rights Reserved.</div>
+        <div style="display: flex; gap: 20px;">
+          <span>FSSAI Certified</span>
+          <span>100% Single-Estate Spices</span>
+        </div>
+      </div>
     </div>
   </footer>
 
-  <!-- ==================== SCRIPT LOGIC ==================== -->
-  <script>
-    // Initialize Lucide Icons
-    lucide.createIcons();
+  <!-- Floating Quick Booking Action Pill (Ultra-Easy Access) -->
+  <div class="floating-booking-pill" id="floating-booking-btn" role="button" aria-label="Invite Ookhal Musal to Your Apartment">
+    <span class="pill-glow-dot"></span>
+    <span style="font-size: 1.1rem;">🌿</span>
+    <span style="font-weight: 700; font-size: 0.92rem;">Invite Us to Your Society</span>
+    <span class="badge-tag badge-gold" style="font-size: 0.68rem;" id="wishlist-count-num">0</span>
+  </div>
 
-    // Set Current Year in Footer
-    document.getElementById('current-year').textContent = new Date().getFullYear();
+  <!-- Toast Notification Utility -->
+  <div class="toast-notice" id="toast-notice" role="alert">
+    <span style="font-size: 1.3rem;">✨</span>
+    <span id="toast-message" style="font-size: 0.9rem; font-weight: 600;">Action completed.</span>
+  </div>
 
-    // Mobile Menu Toggle
-    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-    const mobileMenu = document.getElementById('mobile-menu');
-    mobileMenuBtn.addEventListener('click', () => {
-      mobileMenu.classList.toggle('hidden');
-    });
-
-    // Close Mobile Menu on link click
-    document.querySelectorAll('.mobile-nav-link').forEach(link => {
-      link.addEventListener('click', () => {
-        mobileMenu.classList.add('hidden');
-      });
-    });
-
-    // Header scroll background elevation
-    const header = document.getElementById('main-header');
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 40) {
-        header.classList.add('shadow-md', 'bg-ivory-light/95');
-      } else {
-        header.classList.remove('shadow-md');
-      }
-    });
-
-    // Intersection Observer for elegant scroll animations
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('is-visible');
-        }
-      });
-    }, {
-      threshold: 0.1,
-      rootMargin: "0px 0px -40px 0px"
-    });
-
-    document.querySelectorAll('.fade-in-section').forEach(section => {
-      observer.observe(section);
-    });
-
-    // Helper to prefill Enquiry form when clicking "Discover this blend"
-    function prefillEnquiry(blendName) {
-      const purposeSelect = document.getElementById('purpose');
-      const notesTextarea = document.getElementById('notes');
+  <!-- 1. MODAL: QUICK APARTMENT INVITATION -->
+  <div class="modal-overlay" id="booking-modal-overlay">
+    <div class="modal-content">
+      <button class="modal-close-btn modal-close-trigger" aria-label="Close Modal">&times;</button>
       
-      if (blendName.includes('Garam') || blendName.includes('Tadka') || blendName.includes('Sabzi') || blendName.includes('Khichdi')) {
-        purposeSelect.value = 'Fresh-ground everyday masalas';
-      } else if (blendName.includes('Chai')) {
-        purposeSelect.value = 'Chai masala';
-      } else {
-        purposeSelect.value = 'Personalised spice blend';
-      }
+      <span class="badge-tag badge-launch" style="margin-bottom: 10px;">Quick Society Invite</span>
+      <h3 style="font-family: var(--font-serif); font-size: 2rem; margin-bottom: 6px;">Invite Ookhal Musal to Your Community</h3>
+      <p style="font-size: 0.9rem; color: #695B4F; margin-bottom: 24px;">Our master artisan brings the traditional granite grinding station straight to your apartment courtyard.</p>
 
-      notesTextarea.value = `I am interested in discovering the ${blendName} concept and understanding how you can customize it for my kitchen.`;
+      <form id="modal-apartment-booking-form">
+        <input type="hidden" id="modal-form-selected-spices-hidden" name="selectedSpices" value="">
+        <input type="hidden" id="modal-form-household-size" name="communitySize" value="10-25 Households">
 
-      // Smooth scroll to enquiry form
-      document.getElementById('enquiry').scrollIntoView({ behavior: 'smooth' });
-      document.getElementById('name').focus();
-    }
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">Full Name <span class="req">*</span></label>
+            <input type="text" name="fullName" class="form-input" placeholder="Your name" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label">WhatsApp Number <span class="req">*</span></label>
+            <input type="tel" name="phone" class="form-input" placeholder="+91 98765 43210" required>
+          </div>
+        </div>
 
-    // Handle Form Submission with Validation & Feedback
-    function handleFormSubmit(event) {
-      event.preventDefault();
-      const form = document.getElementById('spice-enquiry-form');
-      const alertBox = document.getElementById('form-alert');
-      const submitBtn = document.getElementById('submit-btn');
+        <div class="form-group">
+          <label class="form-label">Apartment / Society Name <span class="req">*</span></label>
+          <input type="text" name="societyName" class="form-input" placeholder="e.g. Prestige Shantiniketan, Tower 2" required>
+        </div>
 
-      // Fetch values
-      const name = document.getElementById('name').value.trim();
-      const phone = document.getElementById('phone').value.trim();
-      const email = document.getElementById('email').value.trim();
-      const city = document.getElementById('city').value.trim();
-      const purpose = document.getElementById('purpose').value;
-      const notes = document.getElementById('notes').value.trim();
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">City &amp; Locality <span class="req">*</span></label>
+            <input type="text" name="city" class="form-input" placeholder="e.g. Whitefield, Bangalore" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Approx Households</label>
+            <select name="communitySizeSelect" class="form-select" onchange="document.getElementById('modal-form-household-size').value=this.value">
+              <option value="5-10 Households">5–10 Homes (Friendly Block)</option>
+              <option value="10-25 Households" selected>10–25 Homes (Tower)</option>
+              <option value="25-50 Households">25–50 Homes (Wing)</option>
+              <option value="50+ Households">50+ Homes (Society Camp)</option>
+            </select>
+          </div>
+        </div>
 
-      if (!name || !phone || !email || !city || !purpose) {
-        alertBox.className = 'p-4 rounded-xl text-sm bg-red-100 text-red-900 border border-red-300 block mb-6';
-        alertBox.textContent = 'Please fill out all required fields to proceed with your booking.';
-        return;
-      }
+        <div class="form-group">
+          <label class="form-label">Selected Spices for Visit</label>
+          <div class="selected-spices-box" id="modal-selected-spices-tag-box">
+            <!-- Injected dynamically -->
+          </div>
+        </div>
 
-      // Simulate submission UX
-      submitBtn.disabled = true;
-      submitBtn.innerHTML = '<span>Preparing your consultation...</span>';
+        <div class="form-group">
+          <label class="form-label">Preferred Weekend Slot</label>
+          <select name="preferredDate" class="form-select">
+            <option value="Upcoming Saturday Morning">Upcoming Saturday Morning (9 AM – 1 PM)</option>
+            <option value="Upcoming Sunday Morning">Upcoming Sunday Morning (9 AM – 1 PM)</option>
+            <option value="Upcoming Weekend Evening">Upcoming Weekend Evening (4 PM – 8 PM)</option>
+            <option value="Next Month Festive Camp">Next Month Festive / RWA Event</option>
+          </select>
+        </div>
 
-      setTimeout(() => {
-        alertBox.className = 'p-4 rounded-xl text-sm bg-emerald-100 text-emerald-900 border border-emerald-300 block mb-6';
-        alertBox.innerHTML = `
-          <strong>Thank you, ${name}!</strong><br>
-          Your request for <em>${purpose}</em> has been received. Our spice artisan will contact you at ${phone} to schedule your fresh-grinding consultation.
-        `;
-        
-        // Construct pre-filled WhatsApp link option
-        const waText = encodeURIComponent(`Hello Ookhal Musal, my name is ${name} (${city}). I have just submitted an enquiry regarding "${purpose}". My notes: ${notes}`);
-        document.getElementById('whatsapp-direct-btn').href = `https://wa.me/919876543210?text=${waText}`;
+        <button type="submit" class="btn btn-primary btn-lg" style="width: 100%;">
+          <span>🌿 Confirm Society Invitation</span>
+        </button>
+      </form>
+    </div>
+  </div>
 
-        submitBtn.disabled = false;
-        submitBtn.innerHTML = '<span>Consultation Request Sent</span> <i data-lucide="check" class="w-4 h-4"></i>';
-        lucide.createIcons();
-        form.reset();
-      }, 800);
-    }
-  </script>
+  <!-- 2. MODAL: BOOKING SUCCESS CONFIRMATION -->
+  <div class="modal-overlay" id="booking-success-modal">
+    <div class="modal-content" style="text-align: center; max-width: 540px;">
+      <button class="modal-close-btn modal-close-trigger">&times;</button>
+      <div style="font-size: 3.2rem; margin-bottom: 14px;">🏺✨</div>
+      <span class="badge-tag badge-gold" style="margin-bottom: 12px;" id="success-lead-destination">✓ Synced to HubSpot CRM</span>
+      <h3 style="font-family: var(--font-serif); font-size: 2.2rem; margin-bottom: 10px;">Society Invitation Received!</h3>
+      <p style="font-size: 1rem; color: #58483C; line-height: 1.7; margin-bottom: 24px;">
+        We have reserved your request for <strong id="success-society-name" style="color: var(--walnut);">your apartment</strong> on <strong id="success-date-slot" style="color: var(--terracotta);">Upcoming Weekend</strong>.
+      </p>
+      
+      <div style="background: #FAF7F2; border: 1px solid var(--border-light); border-radius: var(--radius-md); padding: 18px; text-align: left; margin-bottom: 24px;">
+        <h4 style="font-size: 0.95rem; margin-bottom: 8px;">What happens next?</h4>
+        <ol style="font-size: 0.88rem; color: #625347; padding-left: 20px; line-height: 1.6;">
+          <li>Our Society Experience Concierge will WhatsApp you within 4 hours.</li>
+          <li>We will share customized digital posters and a message you can forward to your society group.</li>
+          <li>Our artisan will arrive with freshly calibrated stone mortars and whole spice jars!</li>
+        </ol>
+      </div>
+
+      <button class="btn btn-primary modal-close-trigger" style="width: 100%;">
+        <span>Done &amp; Return to Atelier</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- JavaScript Modules -->
+  <script src="assets/js/spices-data.js"></script>
+  <script src="assets/js/hubspot-config.js"></script>
+  <script src="assets/js/app.js"></script>
 </body>
 </html>
