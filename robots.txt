@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+Disallow: /admin.html
+Disallow: /assets/js/hubspot-config.js
+
+# Sitemaps
+Sitemap: https://www.ookhalmusal.com/sitemap.xml
+
+# Crawl-delay (optional, polite to heavy crawlers)
+Crawl-delay: 10
